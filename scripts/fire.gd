@@ -73,6 +73,8 @@ func _on_object_holder_pizzaman_fire() -> void:
 					yellow_ball_logic()
 				"green ball":
 					green_ball_logic()
+				"pink ball":
+					pink_ball_logic()
 
 func _on_explosion_area_body_entered(body: Node3D) -> void:
 	if body.name == "pasta static":
@@ -197,3 +199,7 @@ func blue_ball_logic() -> void:
 		if raycast_2.get_collider() is BossObject:
 			global.deal_damage(40)
 	raycast_2.queue_free()
+
+func pink_ball_logic() -> void:
+	global.deal_damage(25)
+	global.deal_damage_player(0.05)

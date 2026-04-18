@@ -87,3 +87,5 @@ func _on_object_holder_pizzaman_fire() -> void:
 			RenderingServer.global_shader_parameter_set("pizzaman_eye_color", Vector4(0, 1, 0, 1))
 		"blue ball":
 			RenderingServer.global_shader_parameter_set("pizzaman_eye_color", Vector4(0, 0, 1, 1))
+		"pink ball":
+			RenderingServer.global_shader_parameter_set("pizzaman_eye_color", Vector4(1.0, 0.48, 0.987, 1.0))

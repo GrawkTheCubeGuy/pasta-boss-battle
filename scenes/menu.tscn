@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dodw1l3g54dte"]
+[gd_scene load_steps=34 format=3 uid="uid://dodw1l3g54dte"]
 
 [ext_resource type="Script" uid="uid://d0w7hilpas6fu" path="res://scripts/menu.gd" id="1_con2f"]
 [ext_resource type="Texture2D" uid="uid://c7npie3hu20g0" path="res://images/play.png" id="2_mhnvy"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dti6lt0fh02ey" path="res://images/arrow.png" id="24_ffqrc"]
 [ext_resource type="Texture2D" uid="uid://bsvkl7viwbqar" path="res://ball/green ball.tres" id="24_x16fv"]
 [ext_resource type="Texture2D" uid="uid://bmafvhbqedl2v" path="res://ball/blue ball.tres" id="25_g54pe"]
+[ext_resource type="Texture2D" uid="uid://bl7u6ps4bt4xv" path="res://ball/pink ball.tres" id="26_48ryc"]
 
 [sub_resource type="Animation" id="Animation_mj5lg"]
 length = 0.001
@@ -635,6 +636,19 @@ ball = "blue ball"
 [node name="description" parent="inventory/pizzaman inventory/blue ball" index="1"]
 text = "It's not lag, its a feature! This ball deals great damage, but shots takes a second to process."
 
+[node name="pink ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+layout_mode = 0
+offset_left = 2234.9998
+offset_top = 735.0
+offset_right = 2484.9998
+offset_bottom = 995.0
+texture_normal = ExtResource("26_48ryc")
+point_cost = 2
+ball = "pink ball"
+
+[node name="description" parent="inventory/pizzaman inventory/pink ball" index="1"]
+text = "Be careful! This ball deals great damage to the boss at the cost of your own health."
+
 [node name="back arrow" type="TextureButton" parent="inventory"]
 layout_mode = 0
 offset_left = -2.0
@@ -681,3 +695,4 @@ position = Vector2(576, 324)
 [editable path="inventory/pizzaman inventory/green ball"]
 [editable path="inventory/pizzaman inventory/yellow ball"]
 [editable path="inventory/pizzaman inventory/blue ball"]
+[editable path="inventory/pizzaman inventory/pink ball"]

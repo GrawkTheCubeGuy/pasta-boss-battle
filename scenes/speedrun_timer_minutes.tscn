@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://773610ex15yd"]
+
+[ext_resource type="Script" uid="uid://g6ckgox2d35v" path="res://scripts/speedrun_timer.gd" id="1_rdxsp"]
+
+[node name="speedrun timer minutes" type="Label" node_paths=PackedStringArray("timer")]
+offset_right = 96.0
+offset_bottom = 99.95502
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 70
+text = "00"
+horizontal_alignment = 1
+script = ExtResource("1_rdxsp")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_right = 128.0
+offset_bottom = 96.0
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 70
+text = ":"
+horizontal_alignment = 1

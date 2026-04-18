@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ds5frpmk4amyh"
+path="res://.godot/imported/phase transition.mp3-5531f09cd55c86836cb7601e29e6bd5c.mp3str"
+
+[deps]
+
+source_file="res://sounds/phase transition.mp3"
+dest_files=["res://.godot/imported/phase transition.mp3-5531f09cd55c86836cb7601e29e6bd5c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

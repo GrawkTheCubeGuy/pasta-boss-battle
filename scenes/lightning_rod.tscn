@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2456ypcifwnx"]
+
+[ext_resource type="Script" uid="uid://bwm8n3t5clmbg" path="res://scripts/lightning_rod.gd" id="1_7j8sm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7f2r"]
+albedo_color = Color(0.99999994, 0.42079192, 0.17128178, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7j8sm"]
+material = SubResource("StandardMaterial3D_w7f2r")
+
+[node name="lightning rod" type="MeshInstance3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("SphereMesh_7j8sm")
+script = ExtResource("1_7j8sm")

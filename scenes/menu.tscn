@@ -1,0 +1,682 @@
+[gd_scene load_steps=33 format=3 uid="uid://dodw1l3g54dte"]
+
+[ext_resource type="Script" uid="uid://d0w7hilpas6fu" path="res://scripts/menu.gd" id="1_con2f"]
+[ext_resource type="Texture2D" uid="uid://c7npie3hu20g0" path="res://images/play.png" id="2_mhnvy"]
+[ext_resource type="AudioStream" uid="uid://dj01wcxm1k3jf" path="res://sounds/dark souls mode.mp3" id="3_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://tg8aafggqu50" path="res://images/pasta boss battle.png" id="3_70i5f"]
+[ext_resource type="Texture2D" uid="uid://b8pxsagsdbbso" path="res://images/quit.png" id="4_mj5lg"]
+[ext_resource type="Texture2D" uid="uid://blkovr7ui2jqi" path="res://images/endless mode.png" id="5_ufwb2"]
+[ext_resource type="Texture2D" uid="uid://bvi2k4ah8s1ab" path="res://images/how to play.png" id="6_6cdou"]
+[ext_resource type="Texture2D" uid="uid://cm61mptqp3f8k" path="res://images/speedrun timer off.png" id="7_i42df"]
+[ext_resource type="Script" uid="uid://b1dyj4jhw1dg2" path="res://scripts/speedrun_button.gd" id="8_7jp70"]
+[ext_resource type="Script" uid="uid://6kmewk5wxehp" path="res://scripts/endless_high_score.gd" id="9_mxgkd"]
+[ext_resource type="Script" uid="uid://b640n1763wlcg" path="res://scripts/how_to_play.gd" id="11_ufwb2"]
+[ext_resource type="AudioStream" uid="uid://deq6fyi427kk1" path="res://sounds/Menu.mp3" id="12_6cdou"]
+[ext_resource type="Texture2D" uid="uid://cm6sfm6rkovx5" path="res://images/fork.png" id="12_i42df"]
+[ext_resource type="Texture2D" uid="uid://xesbgi6ux6ku" path="res://images/pizzaman.png" id="13_fy8yy"]
+[ext_resource type="Texture2D" uid="uid://dggsjyrn5010j" path="res://images/pizzaman inventory.png" id="13_i42df"]
+[ext_resource type="Texture2D" uid="uid://cipo5p82ljxrf" path="res://images/cubert.png" id="14_6wigr"]
+[ext_resource type="Texture2D" uid="uid://vol2c0ufw26b" path="res://images/mr man.png" id="15_lnf0i"]
+[ext_resource type="PackedScene" uid="uid://cw2vwuhnjtdx7" path="res://scenes/ball_button.tscn" id="17_ffqrc"]
+[ext_resource type="Texture2D" uid="uid://b8506isp0uyal" path="res://ball/light blue ball.tres" id="18_x16fv"]
+[ext_resource type="PackedScene" uid="uid://devbl5omxry2k" path="res://scenes/ball_activator.tscn" id="19_g54pe"]
+[ext_resource type="Texture2D" uid="uid://dsw10bw5vhel6" path="res://ball/red ball.tres" id="20_48ryc"]
+[ext_resource type="Texture2D" uid="uid://cd5epmclfw481" path="res://ball/orange ball.tres" id="21_vhsb5"]
+[ext_resource type="Script" uid="uid://bddko4ty3qvji" path="res://scripts/point_counter.gd" id="22_6wigr"]
+[ext_resource type="Texture2D" uid="uid://c5ksxajil3vy4" path="res://ball/yellow ball.tres" id="23_lnf0i"]
+[ext_resource type="Texture2D" uid="uid://dti6lt0fh02ey" path="res://images/arrow.png" id="24_ffqrc"]
+[ext_resource type="Texture2D" uid="uid://bsvkl7viwbqar" path="res://ball/green ball.tres" id="24_x16fv"]
+[ext_resource type="Texture2D" uid="uid://bmafvhbqedl2v" path="res://ball/blue ball.tres" id="25_g54pe"]
+
+[sub_resource type="Animation" id="Animation_mj5lg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title screen/logo:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-425.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title screen/quit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-376, 253)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("title screen/play:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(420, 239)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("title screen/endless:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(401, 894)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("title screen/high score:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(405, 422)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("title screen/speedrun:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(780, 444)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("title screen/inventory:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(774, 256)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("cam:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+
+[sub_resource type="Animation" id="Animation_70i5f"]
+resource_name = "bootup"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title screen/logo:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2500003, 1),
+"update": 0,
+"values": [-425.0, 26.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title screen/quit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(0.34150964, 1),
+"update": 0,
+"values": [Vector2(-376, 253), Vector2(20, 269)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("title screen/credits:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.33333334, 0.81),
+"transitions": PackedFloat32Array(0.34150964, 1),
+"update": 0,
+"values": [Vector2(-418.715, 450), Vector2(20, 450)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("title screen/play:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(412, 679), Vector2(394, 244)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("title screen/endless:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(401, 894), Vector2(389, 448)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("title screen/high score:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(409, 855), Vector2(405, 422)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("title screen/speedrun:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.7, 1.2),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(1236, 441), Vector2(780, 444)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("title screen/inventory:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.7, 1.2),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(1251, 251), Vector2(774, 256)]
+}
+
+[sub_resource type="Animation" id="Animation_ufwb2"]
+resource_name = "thing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(1728, 324)]
+}
+
+[sub_resource type="Animation" id="Animation_ffqrc"]
+resource_name = "thing_backwards"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(1728, 324), Vector2(576, 324)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufwb2"]
+_data = {
+&"RESET": SubResource("Animation_mj5lg"),
+&"bootup": SubResource("Animation_70i5f"),
+&"thing": SubResource("Animation_ufwb2"),
+&"thing_backwards": SubResource("Animation_ffqrc")
+}
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_con2f")
+
+[node name="title screen" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="background" type="ColorRect" parent="title screen"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="logo" type="TextureRect" parent="title screen"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = -425.0
+offset_right = 1076.0
+offset_bottom = -192.99988
+texture = ExtResource("3_70i5f")
+
+[node name="quit" type="TextureButton" parent="title screen"]
+layout_mode = 0
+offset_left = -376.0
+offset_top = 253.0
+offset_right = -75.0
+offset_bottom = 446.00006
+texture_normal = ExtResource("4_mj5lg")
+
+[node name="endless" type="TextureButton" parent="title screen"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 894.0
+offset_right = 702.0
+offset_bottom = 1087.0009
+texture_normal = ExtResource("5_ufwb2")
+
+[node name="credits" type="RichTextLabel" parent="title screen"]
+layout_mode = 0
+offset_left = -418.715
+offset_top = 450.0
+offset_right = -13.714996
+offset_bottom = 648.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 23
+text = " Credits to:
+ · Data for the music and inspiration
+ · Pizzaman for becoming a weapon of mass destruction
+ · Grawk The Cube Guy (me) for programming"
+
+[node name="inventory" type="TextureButton" parent="title screen"]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 256.0
+offset_right = 1075.0007
+offset_bottom = 449.00037
+texture_normal = ExtResource("6_6cdou")
+
+[node name="speedrun" type="TextureButton" parent="title screen"]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 444.0
+offset_right = 1123.0007
+offset_bottom = 639.0006
+texture_normal = ExtResource("7_i42df")
+script = ExtResource("8_7jp70")
+
+[node name="background music" type="AudioStreamPlayer" parent="title screen"]
+stream = ExtResource("12_6cdou")
+autoplay = true
+
+[node name="play" type="TextureButton" parent="title screen"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 239.0
+offset_right = 721.00037
+offset_bottom = 432.00006
+texture_normal = ExtResource("2_mhnvy")
+
+[node name="high score" type="RichTextLabel" parent="title screen"]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 422.0
+offset_right = 809.99976
+offset_bottom = 499.99988
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 23
+text = "Dolorem ipsum docet dolor sit amet"
+script = ExtResource("9_mxgkd")
+
+[node name="inventory" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1152.0
+offset_right = 1192.0
+offset_bottom = 40.0
+script = ExtResource("11_ufwb2")
+
+[node name="background" type="ColorRect" parent="inventory"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="fork" type="Button" parent="inventory"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 26.0
+offset_right = 64.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 64
+text = "Fork"
+
+[node name="g" type="Control" parent="inventory/fork"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="texture" type="TextureRect" parent="inventory/fork/g"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 128.0
+offset_right = 620.0
+offset_bottom = 609.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_i42df")
+
+[node name="text" type="RichTextLabel" parent="inventory/fork/g"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 391.0
+offset_right = 531.0
+offset_bottom = 604.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 20
+text = "The fork is your main way of dealing damage. It has the highest DPS (Damage Per Second) in the entire game and heals you on impact. However, its drawback is its range.  It can only hit right in front of you.
+
+TIP: You can only reliably hit the boss when it is grounded.
+
+"
+fit_content = true
+
+[node name="pizzaman" type="Button" parent="inventory"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 25.0
+offset_right = 331.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 24
+text = "Pizzaman"
+
+[node name="g" type="Control" parent="inventory/pizzaman"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="texture" type="TextureRect" parent="inventory/pizzaman/g"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 127.0
+offset_right = 609.0
+offset_bottom = 608.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_fy8yy")
+
+[node name="text" type="RichTextLabel" parent="inventory/pizzaman/g"]
+layout_mode = 0
+offset_left = -159.0
+offset_top = 391.0
+offset_right = 366.0
+offset_bottom = 643.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 20
+text = "Pizzaman is a jack of all trades. He has his own specialized inventory (which you can see on the right) with all the \"balls\" he can equip. Each ball has a different effect and will act as a reliable source of damage. 
+
+TIP: Despite being a jack of all trades, he is a master of none. Don't rely on him."
+fit_content = true
+
+[node name="cube" type="Button" parent="inventory"]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 26.0
+offset_right = 493.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 48
+text = "Cube"
+
+[node name="g" type="Control" parent="inventory/cube"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="texture" type="TextureRect" parent="inventory/cube/g"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 98.0
+offset_right = 773.0
+offset_bottom = 597.0
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_6wigr")
+
+[node name="text" type="RichTextLabel" parent="inventory/cube/g"]
+layout_mode = 0
+offset_left = -320.0
+offset_top = 391.0
+offset_right = 205.0
+offset_bottom = 643.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 20
+text = "The cube is a mythical, magical shield wielded by only the strongest warriors for generations. It was especially know for its great ranged defence and utter uselessness in meele defence. 
+
+TIP: Holding the cube slows you down, but holding it while sliding retains your momentum."
+fit_content = true
+
+[node name="mr man" type="Button" parent="inventory"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 26.0
+offset_right = 653.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 32
+text = "Mr. man"
+
+[node name="g" type="Control" parent="inventory/mr man"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="texture" type="TextureRect" parent="inventory/mr man/g"]
+layout_mode = 0
+offset_left = -265.0
+offset_top = 124.0
+offset_right = 506.0
+offset_bottom = 623.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_lnf0i")
+
+[node name="text" type="RichTextLabel" parent="inventory/mr man/g"]
+layout_mode = 0
+offset_left = -481.5
+offset_top = 391.0
+offset_right = 43.5
+offset_bottom = 643.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 20
+text = "Mr. Man is an incrediby powerful being from another galaxy who's been summoned to this galaxy to help defend against the pasta. In this process he lost all his powers, but his luxurios legs remained and can be used to do a dash.
+
+TIP: Mr. Man is one of the only reliable counters to the projectiles."
+fit_content = true
+
+[node name="pizzaman inventory" type="Control" parent="inventory"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+
+[node name="arrow" type="TextureRect" parent="inventory/pizzaman inventory"]
+layout_mode = 0
+offset_left = 1939.9999
+offset_top = 17.5
+offset_right = 2223.0
+offset_bottom = 146.5
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("13_i42df")
+
+[node name="point counter" type="RichTextLabel" parent="inventory/pizzaman inventory"]
+layout_mode = 0
+offset_left = 2050.0002
+offset_top = 297.5
+offset_right = 2458.0002
+offset_bottom = 393.5
+scale = Vector2(1.4, 1.4)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 35
+theme_override_font_sizes/normal_font_size = 50
+text = "points : 10"
+script = ExtResource("22_6wigr")
+
+[node name="light blue ball button" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+layout_mode = 0
+offset_left = 1582.4999
+offset_top = 407.5
+offset_right = 1832.4999
+offset_bottom = 667.5
+texture_normal = ExtResource("18_x16fv")
+point_cost = 4
+ball = "light blue ball"
+
+[node name="ball activator" parent="inventory/pizzaman inventory/light blue ball button" instance=ExtResource("19_g54pe")]
+
+[node name="red ball button" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+layout_mode = 0
+offset_left = 1927.4999
+offset_top = 402.5
+offset_right = 2177.5
+offset_bottom = 662.5
+texture_normal = ExtResource("20_48ryc")
+point_cost = 2
+ball = "red ball"
+
+[node name="description" parent="inventory/pizzaman inventory/red ball button" index="1"]
+text = "This ball is very simple. It deals decent damage to the boss. In compesation it cost very few points."
+
+[node name="ball activator" parent="inventory/pizzaman inventory/red ball button" instance=ExtResource("19_g54pe")]
+
+[node name="orange ball button" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+layout_mode = 0
+offset_left = 2234.9998
+offset_top = 407.5
+offset_right = 2484.9998
+offset_bottom = 667.5
+texture_normal = ExtResource("21_vhsb5")
+point_cost = 4
+ball = "orange ball"
+
+[node name="description" parent="inventory/pizzaman inventory/orange ball button" index="1"]
+text = "ZAP! This ball can place lightning rods on the ground and attract lightning between them. Careful not to step into it though!"
+
+[node name="ball activator" parent="inventory/pizzaman inventory/orange ball button" instance=ExtResource("19_g54pe")]
+
+[node name="green ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+layout_mode = 0
+offset_left = 2547.4998
+offset_top = 410.00003
+offset_right = 2797.4998
+offset_bottom = 670.0
+texture_normal = ExtResource("24_x16fv")
+ball = "green ball"
+
+[node name="description" parent="inventory/pizzaman inventory/green ball" index="1"]
+text = "Are you tired? Then this ball is just the ball for you! It gives stamina upon hitting the boss!"
+
+[node name="yellow ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+layout_mode = 0
+offset_left = 1577.4998
+offset_top = 732.49994
+offset_right = 1827.4998
+offset_bottom = 992.49994
+texture_normal = ExtResource("23_lnf0i")
+point_cost = 6
+ball = "yellow ball"
+
+[node name="description" parent="inventory/pizzaman inventory/yellow ball" index="1"]
+text = "Dont lose your focus! This ball only deals damage if you keep looking at the boss after firing, but the damage slowly increases over time!"
+
+[node name="blue ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+layout_mode = 0
+offset_left = 1917.4998
+offset_top = 732.5
+offset_right = 2167.4998
+offset_bottom = 992.5
+texture_normal = ExtResource("25_g54pe")
+point_cost = 4
+ball = "blue ball"
+
+[node name="description" parent="inventory/pizzaman inventory/blue ball" index="1"]
+text = "It's not lag, its a feature! This ball deals great damage, but shots takes a second to process."
+
+[node name="back arrow" type="TextureButton" parent="inventory"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 131.0
+offset_right = 299.00073
+offset_bottom = 324.00037
+texture_normal = ExtResource("24_ffqrc")
+
+[node name="dark souls mode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4ytvr")
+volume_db = 21.814
+
+[node name="overlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 3449.0
+offset_bottom = 1861.0
+color = Color(1, 0, 0, 1)
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ufwb2")
+}
+
+[node name="cam" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="really fuck me timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="title screen/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="title screen/endless" to="." method="_on_endless_pressed"]
+[connection signal="pressed" from="title screen/inventory" to="." method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="title screen/speedrun" to="title screen/speedrun" method="_on_pressed"]
+[connection signal="pressed" from="title screen/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="title screen/play" to="title screen/speedrun" method="_on_play_pressed"]
+[connection signal="pressed" from="inventory/fork" to="inventory" method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="inventory/pizzaman" to="inventory" method="_on_button_pressed" binds= [2]]
+[connection signal="pressed" from="inventory/cube" to="inventory" method="_on_button_pressed" binds= [3]]
+[connection signal="pressed" from="inventory/mr man" to="inventory" method="_on_button_pressed" binds= [4]]
+[connection signal="pressed" from="inventory/back arrow" to="." method="_on_how_to_play_pressed"]
+
+[editable path="inventory/pizzaman inventory/red ball button"]
+[editable path="inventory/pizzaman inventory/orange ball button"]
+[editable path="inventory/pizzaman inventory/green ball"]
+[editable path="inventory/pizzaman inventory/yellow ball"]
+[editable path="inventory/pizzaman inventory/blue ball"]

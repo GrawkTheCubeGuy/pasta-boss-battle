@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvw64n3aiug0g"]
+
+[ext_resource type="Script" uid="uid://cmd4rqhit3uaj" path="res://scripts/bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://bsrpjrbwb8dod" path="res://ball/rainbow ball.tres" id="2_t4vbm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v8qja"]
+radius = 1.283121
+
+[node name="bullet" type="CharacterBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+visible = false
+motion_mode = 1
+script = ExtResource("1_v8qja")
+
+[node name="sprite" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("2_t4vbm")
+
+[node name="area" type="Area3D" parent="."]
+
+[node name="collis" type="CollisionShape3D" parent="area"]
+shape = SubResource("SphereShape3D_v8qja")
+disabled = true
+
+[connection signal="area_entered" from="area" to="." method="_on_area_area_entered"]
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

@@ -1,0 +1,235 @@
+[gd_scene load_steps=12 format=4 uid="uid://svokdukp3pn5"]
+
+[ext_resource type="Script" uid="uid://qvpqnt836so0" path="res://scripts/pasta_hammer.gd" id="1_a8ggl"]
+[ext_resource type="PackedScene" uid="uid://bra3xx3e22hx2" path="res://images/pasta hammer.blend" id="1_e6wd5"]
+[ext_resource type="Texture2D" uid="uid://dl6lro8k27ab2" path="res://images/rublle particle.png" id="3_kbybe"]
+
+[sub_resource type="Animation" id="Animation_ux1b0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pasta hammer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.3, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pasta hammer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.01, 0.01, 0.01)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pasta hammer:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.8477316, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("area/collis:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("particle:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kbybe"]
+resource_name = "hammer attack"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pasta hammer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.034, 4), Vector3(0, 3.2822862, 4.8384933), Vector3(0, 2.8029435, 4.1472406)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pasta hammer:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2, 2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pasta hammer:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(2.8477316, 0, 0), Vector3(0.060894478, 0, 0), Vector3(-1.7224655, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("area/collis:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("particle:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mjy7q"]
+_data = {
+&"RESET": SubResource("Animation_ux1b0"),
+&"hammer attack": SubResource("Animation_kbybe")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2444c"]
+height = 8.724121
+radius = 1.1806641
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kbybe"]
+resource_name = "rublle_particle"
+transparency = 1
+albedo_texture = ExtResource("3_kbybe")
+metallic = 0.5
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lnq86"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.541126, 0, 1, 1.082252, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"name": "rublle_particle",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAvzyHCr8AAAAAAAAAvzyHCj8AAAAAAAAAPzyHCr8AAAAAAAAAPzyHCj8AAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ux1b0"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.541126, 0, 1, 1.082252, 1e-05),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAA="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": SubResource("StandardMaterial3D_kbybe"),
+"name": "rublle_particle",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAvzyHCr8AAAAAAAAAvzyHCj8AAAAAAAAAPzyHCr8AAAAAAAAAPzyHCj8AAAAA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AIA=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lnq86")
+
+[sub_resource type="Curve" id="Curve_2444c"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.22088352, 96.45053), 0.0, 0.0, 0, 0, Vector2(0.3574297, -215.01703), 0.0, 0.0, 0, 0, Vector2(0.40963855, 360), 0.0, 0.0, 0, 0, Vector2(0.7831325, -39.317383), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[node name="pasta hammer" type="Node3D" node_paths=PackedStringArray("animation")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+script = ExtResource("1_a8ggl")
+animation = NodePath("animation")
+
+[node name="pasta hammer" parent="." instance=ExtResource("1_e6wd5")]
+transform = Transform3D(0.01, 0, 0, 0, -0.009571326, -0.0028964994, 0, 0.0028964994, -0.009571326, 0, 2.3, 0)
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mjy7q")
+}
+speed_scale = 0.3
+
+[node name="area" type="Area3D" parent="."]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.9804086, 0.19697288, 0, -0.19697288, 0.9804086, 0, -1.0782181, -0.17292699)
+
+[node name="collis" type="CollisionShape3D" parent="area"]
+transform = Transform3D(0.99999964, 0, 0, 0, 0.9983636, -0.057215676, 0, 0.057215676, 0.9983636, 0, 3.4033284, 0.7042595)
+shape = SubResource("CylinderShape3D_2444c")
+disabled = true
+
+[node name="particle" type="CPUParticles3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.13717213, 0)
+emitting = false
+amount = 90
+lifetime = 4.0
+preprocess = 0.79
+explosiveness = 1.0
+randomness = 0.75
+lifetime_randomness = 0.3
+mesh = SubResource("ArrayMesh_ux1b0")
+direction = Vector3(1.35, 0.915, 2.915)
+spread = 177.0
+flatness = 1.0
+initial_velocity_max = 0.6
+angular_velocity_min = 720.0
+angular_velocity_max = 720.0
+angular_velocity_curve = SubResource("Curve_2444c")
+linear_accel_min = -2.96
+linear_accel_max = 20.74
+damping_max = 0.335
+scale_amount_min = 7.0
+scale_amount_max = 10.0
+anim_speed_min = 28.44
+anim_speed_max = 28.44
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dexg8oy2pj1ou"]
+
+[ext_resource type="Script" uid="uid://g6ckgox2d35v" path="res://scripts/speedrun_timer.gd" id="1_qvk6b"]
+
+[node name="speedrun timer milliseconds" type="Label" node_paths=PackedStringArray("timer")]
+offset_left = 256.0
+offset_right = 352.0
+offset_bottom = 96.0
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 70
+text = "00"
+horizontal_alignment = 1
+script = ExtResource("1_qvk6b")
+timer = NodePath("Timer")
+max_value = 99
+value_increase = 5.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true

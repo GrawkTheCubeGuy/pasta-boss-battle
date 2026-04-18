@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxcrldu5gq2ij"
+path="res://.godot/imported/boss music second half.mp3-eb1cf8c68ca41987cc33c103ee72df0e.mp3str"
+
+[deps]
+
+source_file="res://sounds/boss music second half.mp3"
+dest_files=["res://.godot/imported/boss music second half.mp3-eb1cf8c68ca41987cc33c103ee72df0e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

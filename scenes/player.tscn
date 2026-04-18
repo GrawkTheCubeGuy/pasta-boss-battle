@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://blfu2pd8vu1ap"]
+
+[ext_resource type="Script" uid="uid://cj6hykvipu0f8" path="res://scripts/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://dotdjahbvy5pn" path="res://scenes/camera.tscn" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://cjtx3vfljqsuk" path="res://scenes/object_holder.tscn" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://burc7bkmr3466" path="res://scenes/crosshair.tscn" id="4_hqtel"]
+[ext_resource type="PackedScene" uid="uid://cb5xl423gx7f5" path="res://scenes/fork_attack_area.tscn" id="5_sweqy"]
+[ext_resource type="PackedScene" uid="uid://f705axjte4f" path="res://scenes/itembar.tscn" id="6_fjrip"]
+[ext_resource type="PackedScene" uid="uid://bxgq1a2hhkpua" path="res://scenes/healthbar.tscn" id="7_fjrip"]
+[ext_resource type="PackedScene" uid="uid://cmu30qgyc0fbu" path="res://scenes/stamina.tscn" id="8_smehm"]
+[ext_resource type="PackedScene" uid="uid://bs7pp6pip7wd3" path="res://scenes/boss health.tscn" id="9_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://dgu07a3lv2nup" path="res://ball/balls.png" id="10_y4r1p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8uh7m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ur7pv"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_smehm"]
+material = SubResource("StandardMaterial3D_ur7pv")
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_4flbx")
+
+[node name="collis" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_8uh7m")
+
+[node name="camera" parent="." instance=ExtResource("2_i3pqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.626068, 0)
+
+[node name="fire" parent="camera" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../..")
+
+[node name="teleport base collider" parent="camera" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.688542)
+
+[node name="object holder" parent="." instance=ExtResource("2_onrkg")]
+z_index = 1
+offset_left = 1024.0
+offset_top = 504.0
+offset_right = 1064.0
+offset_bottom = 544.0
+scale = Vector2(1.0846571, 1.0603055)
+
+[node name="next up" parent="object holder" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../..")
+
+[node name="crosshair" parent="." instance=ExtResource("4_hqtel")]
+
+[node name="crosshair" parent="crosshair" index="0" node_paths=PackedStringArray("raycaster")]
+raycaster = NodePath("../../camera/fire")
+
+[node name="fork attack area" parent="." instance=ExtResource("5_sweqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6185887)
+
+[node name="itembar" parent="." instance=ExtResource("6_fjrip")]
+z_index = 2
+offset_left = 589.0
+offset_top = 574.0
+offset_right = 629.0
+offset_bottom = 614.0
+scale = Vector2(1.65726, 1.8321071)
+
+[node name="healthbar" parent="." instance=ExtResource("7_fjrip")]
+z_index = 2
+offset_left = 70.0
+offset_top = 530.0
+offset_right = 110.00001
+offset_bottom = 570.0
+scale = Vector2(1.4770712, 1.6386689)
+
+[node name="stamina" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_smehm")]
+z_index = 3
+offset_left = 5.0
+offset_top = 384.0
+offset_right = 45.0
+offset_bottom = 424.0
+scale = Vector2(0.33101654, 0.29872707)
+player = NodePath("..")
+
+[node name="mesh (for scale)" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_smehm")
+
+[node name="boss health" parent="." instance=ExtResource("9_ur7pv")]
+offset_left = 344.0
+offset_right = 384.0
+
+[node name="Balls" type="Sprite2D" parent="."]
+position = Vector2(-483, 436)
+texture = ExtResource("10_y4r1p")
+
+[connection signal="cube_shield" from="object holder" to="." method="_on_object_holder_cube_shield"]
+[connection signal="fork_attack" from="object holder" to="fork attack area" method="_on_object_holder_fork_attack"]
+[connection signal="mrman_dash" from="object holder" to="." method="_on_object_holder_mrman_dash"]
+[connection signal="pizzaman_fire" from="object holder" to="camera/fire" method="_on_object_holder_pizzaman_fire"]
+[connection signal="weapon_switched" from="object holder" to="itembar" method="switch_selector"]
+
+[editable path="camera"]
+[editable path="object holder"]
+[editable path="crosshair"]
+[editable path="fork attack area"]

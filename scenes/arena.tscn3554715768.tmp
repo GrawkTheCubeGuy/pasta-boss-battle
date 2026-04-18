@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0kpnrhhdhf8f"]
+
+[ext_resource type="PackedScene" uid="uid://c48ipmey548cg" path="res://scenes/arena_model.tscn" id="1_e05a3"]
+[ext_resource type="PackedScene" uid="uid://blfu2pd8vu1ap" path="res://scenes/player.tscn" id="2_wl4x5"]
+[ext_resource type="Script" uid="uid://dlssb4ieda07p" path="res://scripts/bullet_testing.gd" id="3_olpmc"]
+[ext_resource type="PackedScene" uid="uid://cb1k1use0mvrd" path="res://scenes/boss_object.tscn" id="4_xdvfk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wl4x5"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_olpmc"]
+sky_material = SubResource("ProceduralSkyMaterial_wl4x5")
+
+[sub_resource type="Environment" id="Environment_xdvfk"]
+background_mode = 2
+sky = SubResource("Sky_olpmc")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="arena" type="Node3D"]
+
+[node name="arena model" parent="." instance=ExtResource("1_e05a3")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0.010605812, -2.7822514, 0.060410976)
+
+[node name="player" parent="." instance=ExtResource("2_wl4x5")]
+
+[node name="world" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="world"]
+environment = SubResource("Environment_xdvfk")
+
+[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.165358, 0, 0)
+script = ExtResource("3_olpmc")
+player = NodePath("../player")
+
+[node name="Timer" type="Timer" parent="Node3D"]
+
+[node name="boss object" parent="." instance=ExtResource("4_xdvfk")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.870913, 8.423086, 4.1357117)

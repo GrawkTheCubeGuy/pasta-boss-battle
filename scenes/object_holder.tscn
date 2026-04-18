@@ -1,0 +1,306 @@
+[gd_scene load_steps=15 format=3 uid="uid://cjtx3vfljqsuk"]
+
+[ext_resource type="Shader" uid="uid://bn0aufi7jf5k0" path="res://scripts/object_holder.gdshader" id="1_1seg0"]
+[ext_resource type="Script" uid="uid://0gi5ribqan2x" path="res://scripts/object_holder.gd" id="1_gg6pc"]
+[ext_resource type="Texture2D" uid="uid://xesbgi6ux6ku" path="res://images/pizzaman.png" id="2_1seg0"]
+[ext_resource type="Texture2D" uid="uid://daa6q7v8x6b0h" path="res://images/pizzaman_laser.png" id="3_i6tco"]
+[ext_resource type="PackedScene" uid="uid://cttvxdagvsyre" path="res://scenes/next_up.tscn" id="5_i6tco"]
+
+[sub_resource type="Animation" id="Animation_md508"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("item:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("item:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("item:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("item:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_1seg0")]
+}
+
+[sub_resource type="Animation" id="Animation_v26ib"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("item:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.24877602, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(79, 55), Vector2(-318, -170), Vector2(79, 55), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("item:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.5486364, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v2s4b"]
+resource_name = "bounce"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("item:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.99999994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.13535982, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("item:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.99999994),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-106.999985, 39), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5yetl"]
+resource_name = "shield"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("item:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-432, -187)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("item:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2.2225506, 1.4908643)]
+}
+
+[sub_resource type="Animation" id="Animation_q70my"]
+resource_name = "shoot"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("item:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.2006271),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-34, 4), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("item:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1001, 0.19963033),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2113732, 1.0940582), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("item:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.22097702, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("item:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_i6tco"), ExtResource("2_1seg0")]
+}
+
+[sub_resource type="Animation" id="Animation_k7uy5"]
+resource_name = "switch weapon"
+length = 0.14
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("item:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(114, 64), Vector2(-27, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("item:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.93439376, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_i6tco"]
+resource_name = "whirl"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("item:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7uy5"]
+_data = {
+&"RESET": SubResource("Animation_md508"),
+&"attack": SubResource("Animation_v26ib"),
+&"bounce": SubResource("Animation_v2s4b"),
+&"shield": SubResource("Animation_5yetl"),
+&"shoot": SubResource("Animation_q70my"),
+&"switch weapon": SubResource("Animation_k7uy5"),
+&"whirl": SubResource("Animation_i6tco")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1seg0"]
+shader = ExtResource("1_1seg0")
+
+[node name="object holder" type="Control" node_paths=PackedStringArray("animation_player", "item_texture")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 989.0
+offset_top = 477.0
+offset_right = 1029.0
+offset_bottom = 517.0
+script = ExtResource("1_gg6pc")
+animation_player = NodePath("animation player")
+item_texture = NodePath("item")
+
+[node name="animation player" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k7uy5")
+}
+
+[node name="item" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_1seg0")
+texture = ExtResource("2_1seg0")
+
+[node name="next up" parent="." instance=ExtResource("5_i6tco")]
+layout_mode = 0
+offset_left = -936.0
+offset_top = -646.0
+offset_right = -896.0
+offset_bottom = -606.0
+
+[node name="mr man timer" type="Timer" parent="."]
+
+[node name="pizzaman timer" type="Timer" parent="."]
+
+[node name="pizzaman" type="RichTextLabel" parent="."]
+visible = false
+z_index = 4096
+layout_mode = 0
+offset_left = -761.0
+offset_top = -102.0
+offset_right = -294.49307
+offset_bottom = 5.5161743
+scale = Vector2(1.5595785, 1.5236413)
+theme_override_constants/outline_size = 15
+text = " 	  CANT PIZZAMAN IF YOU HAVE NO BALLS, IDIOT!
+			 Balls can be re-equipped in the inventory."
+
+[node name="idiot timer" type="Timer" parent="."]
+wait_time = 2.5
+
+[connection signal="pizzaman_fire" from="." to="next up" method="_on_object_holder_pizzaman_fire"]
+[connection signal="weapon_switched" from="." to="next up" method="_on_object_holder_weapon_switched"]
+[connection signal="timeout" from="mr man timer" to="." method="_on_mr_man_timer_timeout"]
+[connection signal="timeout" from="pizzaman timer" to="." method="_on_pizzaman_timer_timeout"]
+[connection signal="timeout" from="idiot timer" to="." method="_on_idiot_timer_timeout"]

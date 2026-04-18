@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://ms5khdr0wpq3"]
+
+[ext_resource type="PackedScene" uid="uid://dy5hqa68wj1rp" path="res://scenes/arena platform.blend" id="1_0vbve"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4p32v"]
+size = Vector3(2.0314941, 0.24406433, 0.52124023)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0a6rq"]
+size = Vector3(1.0039063, 0.99198914, 0.27929688)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1hehd"]
+size = Vector3(1.3470459, 0.99198914, 0.27929688)
+
+[node name="arena platform" type="Node3D"]
+
+[node name="arena platform" parent="." instance=ExtResource("1_0vbve")]
+
+[node name="collision" type="StaticBody3D" parent="."]
+
+[node name="collis" type="CollisionShape3D" parent="collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45300293, -0.070129395, 1.4321485)
+shape = SubResource("BoxShape3D_4p32v")
+
+[node name="collis2" type="CollisionShape3D" parent="collision"]
+transform = Transform3D(0.8211791, 0, -0.57067055, 0, 1, 0, 0.57067055, 0, 0.8211791, -0.42672586, -0.057518005, 1.4810088)
+shape = SubResource("BoxShape3D_4p32v")
+
+[node name="collis3" type="CollisionShape3D" parent="collision"]
+transform = Transform3D(0.99911183, 0, 0.04213722, 0, 1, 0, -0.04213722, 0, 0.99911183, 0.21139061, 0.48551178, 1.776081)
+shape = SubResource("BoxShape3D_0a6rq")
+
+[node name="collis4" type="CollisionShape3D" parent="collision"]
+transform = Transform3D(0.8624783, 0, -0.506094, 0, 1, 0, 0.506094, 0, 0.8624783, -0.92393965, 0.48551178, 1.4352273)
+shape = SubResource("BoxShape3D_1hehd")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddpv1wnjqd2oi"]
+
+[ext_resource type="Script" uid="uid://dwuo67qraphpb" path="res://scripts/speedrun_timer_script.gd" id="1_jdb1m"]
+
+[node name="speedrun timer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 672.0
+script = ExtResource("1_jdb1m")

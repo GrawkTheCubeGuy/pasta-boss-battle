@@ -1,0 +1,147 @@
+[gd_scene load_steps=8 format=3 uid="uid://bv5qsblj2qh38"]
+
+[ext_resource type="Script" uid="uid://didcmcyudqkrw" path="res://scripts/virtue.gd" id="1_vhfr7"]
+[ext_resource type="Texture2D" uid="uid://de8mf433y7nhc" path="res://images/circle of doom.png" id="2_f8xg4"]
+[ext_resource type="PackedScene" uid="uid://c7fjyacans84v" path="res://images/virtue.blend" id="3_f8xg4"]
+
+[sub_resource type="Animation" id="Animation_k1s1w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.5, 1, 2.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("area/mesh:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0.1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("area/collis:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7v6xn"]
+resource_name = "become real"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("area:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.9984941),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5707964, 0, 0), Vector3(1.5707964, 13.404129, 0), Vector3(1.5707964, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("area/collis:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5707964, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.75, 2.25, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.01, 1, 0.01), Vector3(5, 1, 5), Vector3(5, 1, 5), Vector3(0.01, 1, 0.01)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("area/mesh:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.5666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 0.1, 1), Vector3(1, 0.1, 1), Vector3(1, 17, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("area/collis:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ta0qg"]
+_data = {
+&"RESET": SubResource("Animation_k1s1w"),
+&"become real": SubResource("Animation_7v6xn")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pu025"]
+height = 44.149902
+
+[node name="virtue" type="Node3D" node_paths=PackedStringArray("animation")]
+transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 2.5, 0, 0, 0)
+script = ExtResource("1_vhfr7")
+animation = NodePath("animation")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ta0qg")
+}
+speed_scale = 2.2
+
+[node name="area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="collis" type="CollisionShape3D" parent="area"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.0056152344, 0)
+shape = SubResource("CylinderShape3D_pu025")
+disabled = true
+
+[node name="circle" type="Sprite3D" parent="area"]
+transform = Transform3D(0.2341956, -0.26010072, 1.1369364e-08, 0.26010072, 0.2341956, 5.0619704e-09, -1.1369365e-08, 5.0619677e-09, 0.35, 0, -4.8519897e-08, -1.1100059)
+texture = ExtResource("2_f8xg4")
+
+[node name="mesh" parent="area" instance=ExtResource("3_f8xg4")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-09, 1, 0, -0.1, -4.371139e-08, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxgq1a2hhkpua"]
+
+[ext_resource type="Shader" uid="uid://b4qcplh5ed0ju" path="res://scripts/healthbar.gdshader" id="1_vjxg4"]
+[ext_resource type="Texture2D" uid="uid://ct5cky1c2k1bq" path="res://images/healthbar.png" id="2_ulkio"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y8nn8"]
+shader = ExtResource("1_vjxg4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25yk6"]
+atlas = ExtResource("2_ulkio")
+region = Rect2(210, 185, 1894, 739)
+
+[node name="healthbar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="healthbar" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_y8nn8")
+layout_mode = 0
+offset_left = -33.000004
+offset_top = -9.000002
+offset_right = 1861.0
+offset_bottom = 730.0
+scale = Vector2(0.1, 0.1)
+texture = SubResource("AtlasTexture_25yk6")
+stretch_mode = 2

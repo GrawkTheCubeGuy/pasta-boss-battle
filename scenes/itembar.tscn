@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://f705axjte4f"]
+
+[ext_resource type="Script" uid="uid://dearfls8kw670" path="res://scripts/itembar.gd" id="1_24pmt"]
+[ext_resource type="Texture2D" uid="uid://dvao7qg7jdb6o" path="res://images/itembar.png" id="2_irg8p"]
+[ext_resource type="Texture2D" uid="uid://covvo374nil7w" path="res://images/item_fork.png" id="3_i6f0f"]
+[ext_resource type="Texture2D" uid="uid://bqpdpwi8lyo8" path="res://images/z o t e.png" id="4_uv2k3"]
+[ext_resource type="Texture2D" uid="uid://cq6gspvapn7ks" path="res://images/generic ahh cube.png" id="5_ktfv3"]
+[ext_resource type="Texture2D" uid="uid://7kxdcnh50vut" path="res://images/tiny mr man.png" id="6_x46ff"]
+[ext_resource type="Texture2D" uid="uid://dfwpwmljwnuc7" path="res://images/image.png" id="7_dd46f"]
+
+[node name="itembar" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_24pmt")
+
+[node name="itembar" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = -2.8749998
+anchor_top = -1.3
+anchor_right = 2.8675
+anchor_bottom = 1.3175001
+offset_right = 2067.3
+offset_bottom = 942.3
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_irg8p")
+metadata/_edit_use_anchors_ = true
+
+[node name="items" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fork" type="TextureRect" parent="items"]
+layout_mode = 0
+offset_left = -70.0
+offset_top = -7.0
+offset_right = -35.0
+offset_bottom = 27.0
+texture = ExtResource("3_i6f0f")
+expand_mode = 1
+
+[node name="zote" type="TextureRect" parent="items"]
+layout_mode = 0
+offset_left = -26.0
+offset_top = -6.0
+offset_right = 9.0
+offset_bottom = 28.0
+texture = ExtResource("4_uv2k3")
+expand_mode = 1
+
+[node name="cube" type="TextureRect" parent="items"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -8.0
+offset_right = 51.0
+offset_bottom = 26.0
+texture = ExtResource("5_ktfv3")
+expand_mode = 1
+
+[node name="mr man" type="TextureRect" parent="items"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = -14.0
+offset_right = 96.0
+offset_bottom = 29.0
+texture = ExtResource("6_x46ff")
+expand_mode = 1
+
+[node name="selector" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -20.0
+offset_right = 535.0
+offset_bottom = 598.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_dd46f")

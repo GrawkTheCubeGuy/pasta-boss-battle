@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb5xl423gx7f5"]
+
+[ext_resource type="Script" uid="uid://cjaj80b1umdxy" path="res://scripts/fork_attack_area.gd" id="1_fmajv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1odso"]
+size = Vector3(1, 0.99490356, 0.48150635)
+
+[node name="fork attack area" type="Area3D"]
+script = ExtResource("1_fmajv")
+
+[node name="collis" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54759216, -0.13418579)
+shape = SubResource("BoxShape3D_1odso")
+disabled = true
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmu30qgyc0fbu"]
+
+[ext_resource type="Script" uid="uid://dmohwarucp6oj" path="res://scripts/stamina.gd" id="1_1se55"]
+[ext_resource type="Texture2D" uid="uid://cgvqdc3ey3h63" path="res://images/stamina.png" id="2_q28kj"]
+
+[node name="stamina" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1se55")
+
+[node name="texture" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_q28kj")
+
+[node name="deathline" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.45
+anchor_top = 2.825
+anchor_right = 22.325
+anchor_bottom = 7.775
+offset_right = -717.25
+color = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="backdeathline" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 22.325
+anchor_top = 7.775
+anchor_right = 59.125
+anchor_bottom = 12.725
+offset_right = -717.25
+rotation = -3.1415927
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true

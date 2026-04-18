@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxau7m8hv3fu1"]
+
+[ext_resource type="PackedScene" uid="uid://blfu2pd8vu1ap" path="res://scenes/player.tscn" id="1_tvmuh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tvmuh"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_sguxl"]
+sky_material = SubResource("ProceduralSkyMaterial_tvmuh")
+
+[sub_resource type="Environment" id="Environment_7ybqm"]
+background_mode = 2
+sky = SubResource("Sky_sguxl")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="phase one" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7ybqm")
+
+[node name="player" parent="." instance=ExtResource("1_tvmuh")]

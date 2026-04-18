@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfjeul7poltv8"]
+
+[ext_resource type="PackedScene" uid="uid://ms5khdr0wpq3" path="res://scenes/arena_platform.tscn" id="1_3f3si"]
+[ext_resource type="PackedScene" uid="uid://bca6w8102qd28" path="res://scenes/pasta_texture.tscn" id="2_ortsv"]
+[ext_resource type="Script" uid="uid://dvewm5am8f3hv" path="res://scripts/i love balls.gd" id="3_qygyp"]
+[ext_resource type="PackedScene" uid="uid://c4o2dae1igs52" path="res://scenes/pasta tentacle.glb" id="4_tk2eg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4c4u"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_6lnuf"]
+sky_material = SubResource("ProceduralSkyMaterial_h4c4u")
+
+[sub_resource type="Environment" id="Environment_dsofk"]
+background_mode = 2
+sky = SubResource("Sky_6lnuf")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ur7pv"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g5emf"]
+material = SubResource("StandardMaterial3D_ur7pv")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="animation" type="AnimationPlayer" parent="."]
+
+[node name="camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.307846, 52.94645)
+
+[node name="environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
+environment = SubResource("Environment_dsofk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="mesh (for scale)" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.97067034, 0, -0.24041441, 0, 1, 0, 0.24041441, 0, -0.97067034, -6.225307, 6.8317537, -11.294138)
+mesh = SubResource("CapsuleMesh_g5emf")
+skeleton = NodePath("../camera")
+
+[node name="arena platform" parent="." instance=ExtResource("1_3f3si")]
+transform = Transform3D(-9.706703, 0, -2.404144, 0, 10, 0, 2.404144, 0, -9.706703, -2.9617639, 5.4339266, 1.88238)
+
+[node name="pasta 2 electric boogaloo" parent="." instance=ExtResource("2_ortsv")]
+transform = Transform3D(-2.9949558, 0, 0.17389461, 0, 3, 0, -0.17389461, 0, -2.9949558, -2.4769745, -32.001266, 17.041061)
+billboard = 0
+script = ExtResource("3_qygyp")
+
+[node name="pasta tentacle" parent="pasta 2 electric boogaloo" instance=ExtResource("4_tk2eg")]
+transform = Transform3D(-1.543244, -1.2707553, -0.059824895, -1.2698015, 1.5444031, -0.049224716, 0.07747316, -3.5527137e-16, -1.9984989, -12.825825, 5.2924194, -2.8846073)
+
+[node name="pasta tentacle2" parent="pasta 2 electric boogaloo" instance=ExtResource("4_tk2eg")]
+transform = Transform3D(-1.450356, 1.3759747, -0.056224037, 1.3749423, 1.4514458, 0.053300567, 0.07747317, 2.3013396e-09, -1.9984992, 11.13308, 5.2924194, -2.8846073)
+
+[node name="pasta tentacle3" parent="pasta 2 electric boogaloo" instance=ExtResource("4_tk2eg")]
+transform = Transform3D(1.5160174, 1.3031645, 0.05876943, 1.302187, -1.5171562, 0.050480165, 0.07747317, 6.378069e-09, -1.9984993, 11.130405, -3.5232067, -2.8846073)
+
+[node name="pasta tentacle4" parent="pasta 2 electric boogaloo" instance=ExtResource("4_tk2eg")]
+transform = Transform3D(1.4791375, -1.3449405, 0.057339776, -1.3439312, -1.4802488, -0.052098393, 0.07747317, 4.710165e-09, -1.9984992, -12.823132, -4.0303993, -2.8846073)

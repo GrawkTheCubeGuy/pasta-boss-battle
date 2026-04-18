@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://devbl5omxry2k"]
+
+[ext_resource type="Script" uid="uid://ue0vnmn4aaue" path="res://scripts/ball_activator.gd" id="1_bg1lv"]
+
+[node name="ball activator" type="Node"]
+script = ExtResource("1_bg1lv")

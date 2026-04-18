@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://2v55i64mvn0g"]
+
+[ext_resource type="Script" uid="uid://b6t8v8dvr7m8n" path="res://scripts/game_over.gd" id="1_racf3"]
+[ext_resource type="Texture2D" uid="uid://cd76c8qohdmhg" path="res://images/death screen.png" id="1_tbwuq"]
+
+[node name="game over" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_racf3")
+
+[node name="texture" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -2.0
+offset_top = -45.0
+offset_right = 1152.0
+offset_bottom = 700.0
+texture = ExtResource("1_tbwuq")

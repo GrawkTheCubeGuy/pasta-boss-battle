@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq1sy7u1qndhj"]
+
+[ext_resource type="PackedScene" uid="uid://dxkcd8f5hq6vo" path="res://scenes/arena debris.blend" id="1_y80pn"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sukra"]
+points = PackedVector3Array(0, 0, 0, 1.405, -0.65, 4.665, -0.585, -1.21, 5.415, -2.495, -1.7, -0.42, -2.495, -3.21, -1.17, 0.95, -2.69, -0.225, 2.445, -3.39, 1.405)
+
+[node name="arena debris" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="arena debris" parent="." instance=ExtResource("1_y80pn")]
+
+[node name="collision" type="StaticBody3D" parent="."]
+
+[node name="collis" type="CollisionShape3D" parent="collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8919296, 0.8700931, -1.0435609)
+shape = SubResource("ConvexPolygonShape3D_sukra")

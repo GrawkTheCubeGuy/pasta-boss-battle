@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb1k1use0mvrd"]
+
+[ext_resource type="Script" uid="uid://dvo7vyflccuy6" path="res://scripts/boss_object.gd" id="1_8vi17"]
+[ext_resource type="PackedScene" uid="uid://bca6w8102qd28" path="res://scenes/pasta_texture.tscn" id="2_6slvs"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6slvs"]
+radius = 13.835362
+
+[sub_resource type="Animation" id="Animation_won0v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 19.640486, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6slvs"]
+resource_name = "passive move around"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(20, 20, -30), Vector3(20, 20, 30)]
+}
+
+[sub_resource type="Animation" id="Animation_t847i"]
+resource_name = "stun"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 14, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(20, 20, -30), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(20, 20, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t847i"]
+_data = {
+&"RESET": SubResource("Animation_won0v"),
+&"passive move around": SubResource("Animation_6slvs"),
+&"stun": SubResource("Animation_t847i")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6slvs"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_won0v"]
+material = SubResource("StandardMaterial3D_6slvs")
+radius = 0.19
+height = 0.375
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6slvs"]
+viewport_path = NodePath("pasta texture")
+
+[node name="boss object" type="CharacterBody3D" node_paths=PackedStringArray("attack_timer", "cooldown_timer", "attack_one_timer", "animator", "poison_particle")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 19.640486, 0)
+script = ExtResource("1_8vi17")
+attack_timer = NodePath("attack timer")
+cooldown_timer = NodePath("cooldown timer")
+attack_one_timer = NodePath("attack one timer")
+animator = NodePath("animator")
+poison_particle = NodePath("particle")
+
+[node name="attack timer" type="Timer" parent="."]
+
+[node name="collis" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.931493, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_6slvs")
+
+[node name="animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t847i")
+}
+
+[node name="cooldown timer" type="Timer" parent="."]
+
+[node name="attack one timer" type="Timer" parent="."]
+wait_time = 1.0499999999999998
+
+[node name="particle" type="CPUParticles3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.13717213, 0)
+emitting = false
+amount = 25
+lifetime = 1.97
+preprocess = 0.79
+explosiveness = 0.3
+randomness = 1.0
+lifetime_randomness = 0.61
+mesh = SubResource("SphereMesh_won0v")
+direction = Vector3(0.885, 51.925, 1)
+spread = 160.0
+gravity = Vector3(0, 7.01, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+angular_velocity_min = 720.0
+angular_velocity_max = 720.0
+linear_accel_min = -2.96
+linear_accel_max = 20.74
+damping_max = 0.335
+scale_amount_min = 7.0
+scale_amount_max = 10.0
+anim_speed_min = 28.44
+anim_speed_max = 28.44
+
+[node name="pasta" parent="." instance=ExtResource("2_6slvs")]
+texture = SubResource("ViewportTexture_6slvs")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc81oqoyfqjxq"]
+
+[ext_resource type="Script" uid="uid://cid80tyki02c7" path="res://scripts/lightning.gd" id="1_k2dum"]
+[ext_resource type="Texture2D" uid="uid://bgfh0fakpcugi" path="res://images/conduction.png" id="1_n7g4i"]
+[ext_resource type="Script" uid="uid://xp5qesey2sly" path="res://scripts/lightning_area.gd" id="3_gpx16"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7g4i"]
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wwb6x"]
+material = SubResource("StandardMaterial3D_n7g4i")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ybhjs"]
+
+[node name="lightning" type="MeshInstance3D" node_paths=PackedStringArray("sloppy_joe")]
+transform = Transform3D(-0.3, -4.5298744e-08, 0, 4.5298744e-08, -0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("BoxMesh_wwb6x")
+script = ExtResource("1_k2dum")
+sloppy_joe = NodePath("sloppy way to implement this")
+
+[node name="sloppy way to implement this" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="texture" type="Node3D" parent="."]
+
+[node name="lightning" type="Sprite3D" parent="texture"]
+transform = Transform3D(0.3642254, 1.4210855e-14, 0, -3.5527137e-15, 0.7836604, 0, 0, 0, 0.99999976, 0, 0, -0.5095427)
+texture = ExtResource("1_n7g4i")
+
+[node name="lightning2" type="Sprite3D" parent="texture"]
+transform = Transform3D(0.3642254, 7.1054274e-15, 0, -7.1054274e-15, 0.7836604, 0, 0, 0, 0.99999976, 0, 0, 0.5012609)
+texture = ExtResource("1_n7g4i")
+
+[node name="lightning3" type="Sprite3D" parent="texture"]
+transform = Transform3D(0.3642254, 1.1892215e-07, -1.5099388e-07, 5.527199e-08, -0.003925416, 0.999987, 5.4995827e-08, -0.7836506, -0.0050090766, 7.631259e-08, -0.5053954, -0.0016093114)
+texture = ExtResource("1_n7g4i")
+
+[node name="lightning4" type="Sprite3D" parent="texture"]
+transform = Transform3D(0.3642254, 1.1892215e-07, -1.509939e-07, 5.5271993e-08, -0.003925416, 0.99998724, 5.4995837e-08, -0.78365064, -0.005009077, -7.631259e-08, 0.5053954, -0.0066725044)
+texture = ExtResource("1_n7g4i")
+
+[node name="lightning5" type="Sprite3D" parent="texture"]
+transform = Transform3D(-0.0017226484, -0.0039253724, 0.9999757, -0.36422122, 1.8447405e-05, -0.0047295615, 5.499582e-08, -0.7836506, -0.0050090766, -0.50538975, 0.0023903293, -0.0016093112)
+texture = ExtResource("1_n7g4i")
+
+[node name="lightning6" type="Sprite3D" parent="texture"]
+transform = Transform3D(-0.0017226484, -0.0039253724, 0.9999759, -0.36422125, 1.8447407e-05, -0.0047295624, 5.4995844e-08, -0.7836506, -0.005009077, 0.50538975, -0.0023903293, -0.0066725044)
+texture = ExtResource("1_n7g4i")
+
+[node name="area" type="Area3D" parent="."]
+script = ExtResource("3_gpx16")
+
+[node name="collis" type="CollisionShape3D" parent="area"]
+shape = SubResource("BoxShape3D_ybhjs")
+
+[node name="timer" type="Timer" parent="area"]
+
+[node name="player timer" type="Timer" parent="area"]
+
+[connection signal="body_entered" from="area" to="area" method="_on_body_entered"]
+[connection signal="body_exited" from="area" to="area" method="_on_body_exited"]
+[connection signal="timeout" from="area/timer" to="area" method="_on_timer_timeout"]
+[connection signal="timeout" from="area/player timer" to="area" method="_on_player_timer_timeout"]

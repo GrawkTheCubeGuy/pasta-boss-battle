@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdr8pljar5ngy"]
+
+[ext_resource type="Shader" uid="uid://bgklspdu38q7g" path="res://scripts/boss_object.gdshader" id="1_ixmrb"]
+[ext_resource type="Texture2D" uid="uid://ccl7vdn15jyho" path="res://images/the original              pasta.jpg" id="2_twkel"]
+[ext_resource type="Script" uid="uid://cfpn5rie1yho" path="res://scripts/pasta_texture.gd" id="3_twkel"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksyar"]
+shader = ExtResource("1_ixmrb")
+
+[node name="texture" type="SubViewport"]
+transparent_bg = true
+size = Vector2i(3561, 2265)
+
+[node name="sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ksyar")
+texture = ExtResource("2_twkel")
+offset = Vector2(1780, 1125)
+script = ExtResource("3_twkel")

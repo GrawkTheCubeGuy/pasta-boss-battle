@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnccul1gvsrx1"]
+
+[ext_resource type="Shader" uid="uid://bgklspdu38q7g" path="res://scripts/boss_object.gdshader" id="1_tjv8b"]
+[ext_resource type="Texture2D" uid="uid://cxbt8a4ws5x2n" path="res://images/flying spaghetti monster.png" id="2_827nu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_moohh"]
+shader = ExtResource("1_tjv8b")
+
+[node name="texture spaghetti" type="SubViewport"]
+transparent_bg = true
+size = Vector2i(1000, 802)
+
+[node name="texture" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_moohh")
+texture = ExtResource("2_827nu")
+offset = Vector2(500, 401)

@@ -603,6 +603,7 @@ offset_top = 410.00003
 offset_right = 2797.4998
 offset_bottom = 670.0
 texture_normal = ExtResource("24_x16fv")
+point_cost = 2
 ball = "green ball"
 
 [node name="description" parent="inventory/pizzaman inventory/green ball" index="1"]

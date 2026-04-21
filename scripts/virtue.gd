@@ -17,7 +17,7 @@ func _on_area_body_entered(body: Node3D) -> void:
 	if body is Player:
 		print("virtue hit player")
 		call_deferred("disable_collision")
-		global.deal_damage_player(0.2)
+		global.deal_damage_player(0.1)
 
 func disable_collision() -> void:
 	collis.disabled = true

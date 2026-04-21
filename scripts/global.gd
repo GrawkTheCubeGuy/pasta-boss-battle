@@ -2,7 +2,7 @@ extends Node
 
 signal endless_wave_ended
 
-var max_boss_health : int = 1000
+var max_boss_health : int = 1250
 var health :float = 1.0
 var boss_health :int = max_boss_health
 var scene_retuner
@@ -27,7 +27,7 @@ func deal_damage_player(damage : float) -> void:
 		health -= damage 
 	else:
 		if health > 0:
-			health -= damage * 2
+			health -= damage * 1.5
 		else:
 			health -= damage
 	if health <= 0:

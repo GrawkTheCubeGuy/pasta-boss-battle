@@ -2,15 +2,19 @@ extends RayCast3D
 
 signal boss_entered
 signal boss_exited
+signal attack_done
 
 @onready var yellow_ball_animator : AnimatedSprite2D = $"../yellow ball indicator"
+@onready var blue_ball_animator : AnimatedSprite2D = $"../blue ball indicator"
 var has_boss_entered : bool 
 var is_yellow_ball_firing : bool = false 
 var yellow_ball_amount : int = 0 
 var orange_ball_array : Array[LightningRod]
+@export var next_up : Control 
 @export var player : Player
 @onready var yellow_ball_timer : Timer = $"yellow ball timer"
 @onready var blue_ball_timer : Timer = $"blue ball timer"
+@onready var red_ball_timer : Timer = $"red ball timer"
 @onready var collis_explosion : CollisionShape3D = $"../explosion area/collis"
 @onready var collis_area : Area3D = $"../explosion area"
 @onready var poison_timer : Timer = $"../poison timer"
@@ -63,6 +67,8 @@ func _on_object_holder_pizzaman_fire() -> void:
 					orange_ball_logic(true)
 			"blue ball":
 					blue_ball_logic()
+			"rainbow ball":
+					rainbow_ball_logic()
 		if get_collider() is BossObject:
 			match player.cur_pizzaman_ball:
 				"light blue ball":
@@ -75,6 +81,9 @@ func _on_object_holder_pizzaman_fire() -> void:
 					green_ball_logic()
 				"pink ball":
 					pink_ball_logic()
+				"purple ball":
+					purple_ball_logic()
+	emit_signal("attack_done")
 
 func _on_explosion_area_body_entered(body: Node3D) -> void:
 	if body.name == "pasta static":
@@ -142,9 +151,9 @@ func sniper_ball_logic() -> void:
 	var distance_line : float = sqrt(distance_vector.x * distance_vector.x + distance_vector.y * distance_vector.y + distance_vector.z * distance_vector.z)
 	if distance_vector.y > 2:
 		if distance_line < 26:
-			global.deal_damage(25)
+			global.deal_damage(60)
 		elif distance_line < 35:
-			global.deal_damage(7)
+			global.deal_damage(10)
 		elif distance_line < 50: 
 			global.deal_damage(5)
 		else:
@@ -153,7 +162,10 @@ func sniper_ball_logic() -> void:
 		global.deal_damage(5)
 
 func red_ball_logic() -> void:
-	global.deal_damage(15)
+	boss.set_speed(boss.resting_speed / 2)
+	red_ball_timer.start(10)
+	await red_ball_timer.timeout
+	boss.set_speed(boss.resting_speed)
 
 func yellow_ball_logic() -> void:
 	is_yellow_ball_firing = true
@@ -189,17 +201,35 @@ func green_ball_logic() -> void:
 	global.deal_damage(7)
 
 func blue_ball_logic() -> void:
+	blue_ball_animator.visible = true
+	blue_ball_animator.frame = 0
+	blue_ball_animator.play("blue ball")
 	var raycast_2 : RayCast3D = self.duplicate()
 	raycast_2.set_script(null)
 	scene_root.add_child(raycast_2)
+	raycast_2.get_child(2).visible = true
 	raycast_2.global_transform = global_transform
 	blue_ball_timer.start(1)
 	await blue_ball_timer.timeout
 	if raycast_2.is_colliding():
 		if raycast_2.get_collider() is BossObject:
-			global.deal_damage(40)
+			global.deal_damage(45)
 	raycast_2.queue_free()
+	blue_ball_animator.visible = false
 
 func pink_ball_logic() -> void:
-	global.deal_damage(25)
+	global.deal_damage(40)
 	global.deal_damage_player(0.05)
+
+func purple_ball_logic() -> void:
+	@warning_ignore("narrowing_conversion")
+	global.deal_damage(player.stamina * 2)
+	player.stamina  = 0
+
+func rainbow_ball_logic() -> void:
+	var full_ball_array : Array = ["red ball", "light blue ball", "orange ball", "green ball", "yellow ball", "blue ball", "pink ball"]
+	player.cur_pizzaman_ball = full_ball_array.pick_random()
+	_on_object_holder_pizzaman_fire()
+	await attack_done
+	next_up._on_object_holder_pizzaman_fire()
+	player.cur_pizzaman_ball = "rainbow ball"

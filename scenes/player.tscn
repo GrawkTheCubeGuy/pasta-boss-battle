@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://blfu2pd8vu1ap"]
+[gd_scene load_steps=13 format=3 uid="uid://blfu2pd8vu1ap"]
 
 [ext_resource type="Script" uid="uid://cj6hykvipu0f8" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://dotdjahbvy5pn" path="res://scenes/camera.tscn" id="2_i3pqv"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bxgq1a2hhkpua" path="res://scenes/healthbar.tscn" id="7_fjrip"]
 [ext_resource type="PackedScene" uid="uid://cmu30qgyc0fbu" path="res://scenes/stamina.tscn" id="8_smehm"]
 [ext_resource type="PackedScene" uid="uid://bs7pp6pip7wd3" path="res://scenes/boss health.tscn" id="9_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://dgu07a3lv2nup" path="res://ball/balls.png" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8uh7m"]
 
@@ -29,7 +28,8 @@ shape = SubResource("CapsuleShape3D_8uh7m")
 [node name="camera" parent="." instance=ExtResource("2_i3pqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.626068, 0)
 
-[node name="fire" parent="camera" index="0" node_paths=PackedStringArray("player")]
+[node name="fire" parent="camera" index="0" node_paths=PackedStringArray("next_up", "player")]
+next_up = NodePath("../../object holder/next up")
 player = NodePath("../..")
 
 [node name="teleport base collider" parent="camera" index="2"]
@@ -85,10 +85,6 @@ mesh = SubResource("CapsuleMesh_smehm")
 [node name="boss health" parent="." instance=ExtResource("9_ur7pv")]
 offset_left = 344.0
 offset_right = 384.0
-
-[node name="Balls" type="Sprite2D" parent="."]
-position = Vector2(-483, 436)
-texture = ExtResource("10_y4r1p")
 
 [connection signal="cube_shield" from="object holder" to="." method="_on_object_holder_cube_shield"]
 [connection signal="fork_attack" from="object holder" to="fork attack area" method="_on_object_holder_fork_attack"]

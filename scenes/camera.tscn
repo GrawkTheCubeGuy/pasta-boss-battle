@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dotdjahbvy5pn"]
+[gd_scene load_steps=37 format=3 uid="uid://dotdjahbvy5pn"]
 
 [ext_resource type="Script" uid="uid://dt3l6oqefwh52" path="res://scripts/fire.gd" id="1_u5kg4"]
 [ext_resource type="Texture2D" uid="uid://b4ocp1vq7nwri" path="res://images/explosion.png" id="2_kod1s"]
@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://cnmhfclb0n8k1" path="res://images/spritesheets/yellow ball stage 1.png" id="4_p8nh0"]
 [ext_resource type="Texture2D" uid="uid://b8ddivmxicdv8" path="res://images/spritesheets/yellow ball stage 2.png" id="5_ys67x"]
 [ext_resource type="Texture2D" uid="uid://cf5eki0pwkcpt" path="res://images/spritesheets/yellow ball stage 3.png" id="6_mq7sm"]
+[ext_resource type="Texture2D" uid="uid://c2pucjd6xtt34" path="res://images/spritesheets/blue ball thing.png" id="7_ys67x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ys67x"]
+albedo_color = Color(0, 0.050980393, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ys67x"]
+material = SubResource("StandardMaterial3D_ys67x")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvpoc"]
 size = Vector3(1, 1, 0.001)
@@ -157,6 +164,49 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq7sm"]
+atlas = ExtResource("7_ys67x")
+region = Rect2(0, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf3pk"]
+atlas = ExtResource("7_ys67x")
+region = Rect2(33, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i023m"]
+atlas = ExtResource("7_ys67x")
+region = Rect2(66, 0, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4u8i"]
+atlas = ExtResource("7_ys67x")
+region = Rect2(0, 33, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emde6"]
+atlas = ExtResource("7_ys67x")
+region = Rect2(33, 33, 33, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8fsm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq7sm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf3pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i023m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4u8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emde6")
+}],
+"loop": false,
+"name": &"blue ball",
+"speed": 5.0
+}]
+
 [node name="camera" type="Camera3D"]
 
 [node name="fire" type="RayCast3D" parent="."]
@@ -170,6 +220,14 @@ script = ExtResource("1_u5kg4")
 wait_time = 0.2
 
 [node name="blue ball timer" type="Timer" parent="fire"]
+wait_time = 2.0
+
+[node name="mesh" type="MeshInstance3D" parent="fire"]
+transform = Transform3D(0.25217563, 0, 0, 0, 0.11116004, 0, 0, 0, 969.1842, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_ys67x")
+
+[node name="red ball timer" type="Timer" parent="fire"]
 wait_time = 2.0
 
 [node name="teleport" type="RayCast3D" parent="."]
@@ -214,6 +272,16 @@ position = Vector2(582, 327)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_gf3pk")
 animation = &"stage 1"
+
+[node name="blue ball indicator" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(582, 327)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_a8fsm")
+animation = &"blue ball"
+frame = 4
+frame_progress = 0.8819421
 
 [connection signal="timeout" from="fire/yellow ball timer" to="fire" method="_on_yellow_ball_timer_timeout"]
 [connection signal="body_entered" from="explosion area" to="fire" method="_on_explosion_area_body_entered"]

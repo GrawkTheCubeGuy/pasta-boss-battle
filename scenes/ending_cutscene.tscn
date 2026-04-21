@@ -1,9 +1,119 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfjeul7poltv8"]
+[gd_scene load_steps=15 format=3 uid="uid://dfjeul7poltv8"]
 
 [ext_resource type="PackedScene" uid="uid://ms5khdr0wpq3" path="res://scenes/arena_platform.tscn" id="1_3f3si"]
 [ext_resource type="PackedScene" uid="uid://bca6w8102qd28" path="res://scenes/pasta_texture.tscn" id="2_ortsv"]
 [ext_resource type="Script" uid="uid://dvewm5am8f3hv" path="res://scripts/i love balls.gd" id="3_qygyp"]
 [ext_resource type="PackedScene" uid="uid://c4o2dae1igs52" path="res://scenes/pasta tentacle.glb" id="4_tk2eg"]
+[ext_resource type="AudioStream" uid="uid://c2sooyecssr11" path="res://sounds/ending cutscene.mp3" id="5_4bhu5"]
+
+[sub_resource type="Animation" id="Animation_yefcl"]
+resource_name = "boot"
+length = 47.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("song:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("camera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.6666667, 6.9666667, 7.3333335),
+"transitions": PackedFloat32Array(1.2660722, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 7.307846, 52.94645), Vector3(-1.3989897, 18.16347, -32.395004), Vector3(-1.3989897, 7.089615, -32.395004), Vector3(15.557468, 9.334349, -0.19446945)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("camera:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.5333333, 6.866667, 7.266667),
+"transitions": PackedFloat32Array(1.2660722, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.0428767, 0), Vector3(0.2570921, 3.0395105, -0.026041007), Vector3(0.2565634, 1.3212142, -0.02617994)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pasta 2 electric boogaloo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.06666667, 3.5333333, 8.633333, 10.9),
+"transitions": PackedFloat32Array(1.2660722, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.4769745, -32.001266, 17.041061), Vector3(-2.4769745, 6.62693, 17.041061), Vector3(-2.4769745, 6.62693, 17.041061), Vector3(-11575.092, 6.62693, 17.041061)]
+}
+
+[sub_resource type="Animation" id="Animation_ksuli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("song:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("camera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 7.307846, 52.94645)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("camera:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pasta 2 electric boogaloo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.4769745, -32.001266, 17.041061)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1qf8i"]
+_data = {
+&"RESET": SubResource("Animation_ksuli"),
+&"boot": SubResource("Animation_yefcl")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h4c4u"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,9 +135,15 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g5emf"]
 material = SubResource("StandardMaterial3D_ur7pv")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_yoa3v"]
+viewport_path = NodePath("pasta texture")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1qf8i")
+}
 
 [node name="camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.307846, 52.94645)
@@ -42,7 +158,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="mesh (for scale)" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.97067034, 0, -0.24041441, 0, 1, 0, 0.24041441, 0, -0.97067034, -6.225307, 6.8317537, -11.294138)
+transform = Transform3D(-0.97067034, 0, -0.24041441, 0, 1, 0, 0.24041441, 0, -0.97067034, -2.2149334, 6.8317537, -14.012471)
 mesh = SubResource("CapsuleMesh_g5emf")
 skeleton = NodePath("../camera")
 
@@ -52,6 +168,7 @@ transform = Transform3D(-9.706703, 0, -2.404144, 0, 10, 0, 2.404144, 0, -9.70670
 [node name="pasta 2 electric boogaloo" parent="." instance=ExtResource("2_ortsv")]
 transform = Transform3D(-2.9949558, 0, 0.17389461, 0, 3, 0, -0.17389461, 0, -2.9949558, -2.4769745, -32.001266, 17.041061)
 billboard = 0
+texture = SubResource("ViewportTexture_yoa3v")
 script = ExtResource("3_qygyp")
 
 [node name="pasta tentacle" parent="pasta 2 electric boogaloo" instance=ExtResource("4_tk2eg")]
@@ -65,3 +182,6 @@ transform = Transform3D(1.5160174, 1.3031645, 0.05876943, 1.302187, -1.5171562, 
 
 [node name="pasta tentacle4" parent="pasta 2 electric boogaloo" instance=ExtResource("4_tk2eg")]
 transform = Transform3D(1.4791375, -1.3449405, 0.057339776, -1.3439312, -1.4802488, -0.052098393, 0.07747317, 4.710165e-09, -1.9984992, -12.823132, -4.0303993, -2.8846073)
+
+[node name="song" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4bhu5")

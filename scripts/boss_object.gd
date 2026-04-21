@@ -3,6 +3,7 @@ class_name BossObject
 
 var stun_counter : int = 0
 var stun_requirement : int = 0
+var resting_speed : float = 1
 @export var scene_root : Node3D 
 @export var speed : float = 1
 @export var player : Player
@@ -24,7 +25,8 @@ func _ready() -> void:
 	global.endless_wave_ended.connect(increase_speed)
 	stun_requirement = randi_range(3, 5)
 	if global.dark_souls_mode:
-		global.max_boss_health = 1500
+		resting_speed = 1.5
+		global.max_boss_health = 1250
 		global.boss_health = global.max_boss_health 
 		for i in timer_array:
 			i.wait_time /= 2
@@ -124,3 +126,10 @@ func increase_speed() -> void:
 	stun_counter = 0
 	stun_requirement = randi_range(3, 5)
 	boss_logic()
+
+func set_speed(new_speed : float) -> void:
+	speed = new_speed
+	for i in timer_array:
+		i.wait_time = resting_speed * new_speed
+	animator.speed_scale = new_speed
+	

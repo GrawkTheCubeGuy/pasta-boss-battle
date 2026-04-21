@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c56cfltsqw2e5"]
+
+[ext_resource type="Texture2D" uid="uid://cputbfps4aplw" path="res://ball/locked ball spritesheet that really doesnt need to be a spritesheet but it is.png" id="1_t7rk3"]
+
+[resource]
+atlas = ExtResource("1_t7rk3")
+region = Rect2(743.645, 750.36, 300, 300)

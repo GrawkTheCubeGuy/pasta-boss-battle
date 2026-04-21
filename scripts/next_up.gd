@@ -19,7 +19,10 @@ func _ready() -> void:
 	ball = ball_array[0]
 	player.cur_pizzaman_ball = ball
 	for i in ball_array:
-		load(str("res://ball/", i, ".tres"))
+		if "ball" in i:
+			load(str("res://ball/", i, ".tres"))
+		else:
+			load(str("res://ball/", i, ".png"))
 	print(ball_array)
 	print(ball_index_max)
 	set_ball()
@@ -60,11 +63,16 @@ func set_ball_index() -> void:
 	set_ball()
 	
 func set_ball() -> void:
-	ball_displayer.texture = load(str("res://ball/", ball, ".tres"))
+	if "ball" in ball:
+		ball_displayer.texture = load(str("res://ball/", ball, ".tres"))
+	else:
+		ball_displayer.texture = load(str("res://ball/", ball, ".png"))
+	
 	
 
 func _on_object_holder_pizzaman_fire() -> void:
-	match ball:
+	print(player.cur_pizzaman_ball)
+	match player.cur_pizzaman_ball:
 		"fucking peak":
 			RenderingServer.global_shader_parameter_set("pizzaman_eye_color", Vector4(1, 0, 0, 1))
 		"bob":
@@ -89,3 +97,5 @@ func _on_object_holder_pizzaman_fire() -> void:
 			RenderingServer.global_shader_parameter_set("pizzaman_eye_color", Vector4(0, 0, 1, 1))
 		"pink ball":
 			RenderingServer.global_shader_parameter_set("pizzaman_eye_color", Vector4(1.0, 0.48, 0.987, 1.0))
+		"purple ball":
+			RenderingServer.global_shader_parameter_set("pizzaman_eye_color", Vector4(0.503, 0.0, 0.503, 1.0))

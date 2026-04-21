@@ -22,6 +22,8 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_play_pressed() -> void:
+	var file = FileAccess.open("res://save.txt", FileAccess.WRITE)
+	file.store_string(str(global.ball_inventory))
 	get_tree().change_scene_to_file("res://scenes/opening cutscene.tscn")
 
 func _on_endless_pressed() -> void:
@@ -52,6 +54,7 @@ func dark_souls_mode() -> void:
 		$"really fuck me timer".start(0.016)
 		await $"really fuck me timer".timeout
 	$overlay.visible = false
+
 func _on_pizazaman_inventroy_pressed() -> void:
 	animation.play("pizzaman_inventory")
 

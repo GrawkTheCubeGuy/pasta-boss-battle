@@ -16,6 +16,7 @@ var is_running : bool = false
 @onready var raycast : RayCast3D = $camera/teleport
 
 func _ready() -> void:
+	global.health = 1
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
@@ -25,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
 	# Check sliding
@@ -66,6 +67,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED / 500) #<- this makes you lose velocity slower
 		velocity.z = move_toward(velocity.z, 0, SPEED / 500) #<- this makes you lose velocity slower
 	
+	var cam_input_dir := Input.get_vector("camera_right", "camera_left", "camera_down", "camera_up")
+	rotation_degrees.y += cam_input_dir.x * SENSITIVITY * 10
+	rotation_degrees.x += cam_input_dir.y * SENSITIVITY * 10
+	
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
@@ -76,7 +81,6 @@ func _input(event: InputEvent) -> void:
 
 func _on_object_holder_cube_shield() -> void:
 	is_shielded = not is_shielded
-
 
 func _on_object_holder_mrman_dash() -> void:
 	position = raycast.get_collision_point()

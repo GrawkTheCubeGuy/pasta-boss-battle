@@ -12,7 +12,8 @@ $"pasta tentacle4/AnimationPlayer"
 func _ready() -> void:
 	for i in tentacle_array:
 		i.play("ArmatureAction_001")
-	
+	if global.dark_souls_mode:
+		speed = 0.16
 
 func _process(delta: float) -> void:
 	position.z -= speed * (delta / 0.016)

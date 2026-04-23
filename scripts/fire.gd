@@ -218,8 +218,8 @@ func blue_ball_logic() -> void:
 	blue_ball_animator.visible = false
 
 func pink_ball_logic() -> void:
-	global.deal_damage(40)
-	global.deal_damage_player(0.05)
+	global.deal_damage_player(-(player.stamina / 100))
+	player.stamina = 0
 
 func purple_ball_logic() -> void:
 	@warning_ignore("narrowing_conversion")

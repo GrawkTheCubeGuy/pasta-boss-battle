@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dodw1l3g54dte"]
+[gd_scene format=3 uid="uid://dodw1l3g54dte"]
 
 [ext_resource type="Script" uid="uid://d0w7hilpas6fu" path="res://scripts/menu.gd" id="1_con2f"]
 [ext_resource type="Texture2D" uid="uid://c7npie3hu20g0" path="res://images/play.png" id="2_mhnvy"]
@@ -270,7 +270,7 @@ _data = {
 &"thing_backwards": SubResource("Animation_ffqrc")
 }
 
-[node name="menu" type="Control"]
+[node name="menu" type="Control" unique_id=2098511559]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -279,17 +279,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_con2f")
 
-[node name="title screen" type="Control" parent="."]
+[node name="title screen" type="Control" parent="." unique_id=1056444654]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="background" type="ColorRect" parent="title screen"]
+[node name="background" type="ColorRect" parent="title screen" unique_id=374981058]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="logo" type="TextureRect" parent="title screen"]
+[node name="logo" type="TextureRect" parent="title screen" unique_id=1890682136]
 layout_mode = 0
 offset_left = 90.0
 offset_top = -425.0
@@ -297,7 +297,7 @@ offset_right = 1076.0
 offset_bottom = -192.99991
 texture = ExtResource("3_70i5f")
 
-[node name="quit" type="TextureButton" parent="title screen"]
+[node name="quit" type="TextureButton" parent="title screen" unique_id=782285215]
 layout_mode = 0
 offset_left = -376.0
 offset_top = 253.0
@@ -305,7 +305,7 @@ offset_right = -75.0
 offset_bottom = 446.0001
 texture_normal = ExtResource("4_mj5lg")
 
-[node name="endless" type="TextureButton" parent="title screen"]
+[node name="endless" type="TextureButton" parent="title screen" unique_id=1691714009]
 layout_mode = 0
 offset_left = 401.0
 offset_top = 894.0
@@ -313,7 +313,7 @@ offset_right = 702.00006
 offset_bottom = 1087.001
 texture_normal = ExtResource("5_ufwb2")
 
-[node name="credits" type="RichTextLabel" parent="title screen"]
+[node name="credits" type="RichTextLabel" parent="title screen" unique_id=1065124703]
 layout_mode = 0
 offset_left = -418.715
 offset_top = 450.0
@@ -326,7 +326,7 @@ text = " Credits to:
  · Pizzaman for becoming a weapon of mass destruction
  · Grawk The Cube Guy (me) for programming"
 
-[node name="inventory" type="TextureButton" parent="title screen"]
+[node name="inventory" type="TextureButton" parent="title screen" unique_id=1943019043]
 layout_mode = 0
 offset_left = 774.0
 offset_top = 256.0
@@ -334,7 +334,7 @@ offset_right = 1075.0009
 offset_bottom = 449.00037
 texture_normal = ExtResource("6_6cdou")
 
-[node name="speedrun" type="TextureButton" parent="title screen"]
+[node name="speedrun" type="TextureButton" parent="title screen" unique_id=1533659248]
 layout_mode = 0
 offset_left = 780.0
 offset_top = 444.0
@@ -343,12 +343,12 @@ offset_bottom = 639.00073
 texture_normal = ExtResource("7_i42df")
 script = ExtResource("8_7jp70")
 
-[node name="background music" type="AudioStreamPlayer" parent="title screen"]
+[node name="background music" type="AudioStreamPlayer" parent="title screen" unique_id=212225338]
 stream = ExtResource("12_6cdou")
 volume_db = -17.703
 autoplay = true
 
-[node name="play" type="TextureButton" parent="title screen"]
+[node name="play" type="TextureButton" parent="title screen" unique_id=50754674]
 layout_mode = 0
 offset_left = 420.0
 offset_top = 239.0
@@ -356,7 +356,7 @@ offset_right = 721.00037
 offset_bottom = 432.0
 texture_normal = ExtResource("2_mhnvy")
 
-[node name="high score" type="RichTextLabel" parent="title screen"]
+[node name="high score" type="RichTextLabel" parent="title screen" unique_id=1375399741]
 layout_mode = 0
 offset_left = 405.0
 offset_top = 422.0
@@ -367,19 +367,19 @@ theme_override_font_sizes/normal_font_size = 23
 text = "Dolorem ipsum docet dolor sit amet"
 script = ExtResource("9_mxgkd")
 
-[node name="inventory" type="Control" parent="."]
+[node name="inventory" type="Control" parent="." unique_id=1784369818]
 anchors_preset = 0
 offset_left = 1152.0
 offset_right = 1192.0
 offset_bottom = 40.0
 script = ExtResource("11_ufwb2")
 
-[node name="background" type="ColorRect" parent="inventory"]
+[node name="background" type="ColorRect" parent="inventory" unique_id=231624685]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="fork" type="Button" parent="inventory"]
+[node name="fork" type="Button" parent="inventory" unique_id=1595387406]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 26.0
@@ -388,12 +388,12 @@ offset_bottom = 57.0
 theme_override_font_sizes/font_size = 64
 text = "Fork"
 
-[node name="g" type="Control" parent="inventory/fork"]
+[node name="g" type="Control" parent="inventory/fork" unique_id=1383926087]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="texture" type="TextureRect" parent="inventory/fork/g"]
+[node name="texture" type="TextureRect" parent="inventory/fork/g" unique_id=1467537006]
 layout_mode = 0
 offset_left = 269.0
 offset_top = 128.0
@@ -402,7 +402,7 @@ offset_bottom = 609.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_i42df")
 
-[node name="text" type="RichTextLabel" parent="inventory/fork/g"]
+[node name="text" type="RichTextLabel" parent="inventory/fork/g" unique_id=859247872]
 layout_mode = 0
 offset_left = 6.0
 offset_top = 391.0
@@ -417,7 +417,7 @@ TIP: You can only reliably hit the boss when it is grounded.
 "
 fit_content = true
 
-[node name="pizzaman" type="Button" parent="inventory"]
+[node name="pizzaman" type="Button" parent="inventory" unique_id=2005906337]
 layout_mode = 0
 offset_left = 186.0
 offset_top = 25.0
@@ -426,13 +426,13 @@ offset_bottom = 121.0
 theme_override_font_sizes/font_size = 24
 text = "Pizzaman"
 
-[node name="g" type="Control" parent="inventory/pizzaman"]
+[node name="g" type="Control" parent="inventory/pizzaman" unique_id=446673680]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="texture" type="TextureRect" parent="inventory/pizzaman/g"]
+[node name="texture" type="TextureRect" parent="inventory/pizzaman/g" unique_id=571751392]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 127.0
@@ -441,7 +441,7 @@ offset_bottom = 608.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_fy8yy")
 
-[node name="text" type="RichTextLabel" parent="inventory/pizzaman/g"]
+[node name="text" type="RichTextLabel" parent="inventory/pizzaman/g" unique_id=378032157]
 layout_mode = 0
 offset_left = -159.0
 offset_top = 391.0
@@ -454,7 +454,7 @@ text = "Pizzaman is a jack of all trades. He has his own specialized inventory (
 TIP: Despite being a jack of all trades, he is a master of none. Don't rely on him."
 fit_content = true
 
-[node name="cube" type="Button" parent="inventory"]
+[node name="cube" type="Button" parent="inventory" unique_id=214958705]
 layout_mode = 0
 offset_left = 348.0
 offset_top = 26.0
@@ -463,13 +463,13 @@ offset_bottom = 122.0
 theme_override_font_sizes/font_size = 48
 text = "Cube"
 
-[node name="g" type="Control" parent="inventory/cube"]
+[node name="g" type="Control" parent="inventory/cube" unique_id=1074296101]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="texture" type="TextureRect" parent="inventory/cube/g"]
+[node name="texture" type="TextureRect" parent="inventory/cube/g" unique_id=2068143236]
 layout_mode = 0
 offset_left = 171.0
 offset_top = 98.0
@@ -479,7 +479,7 @@ rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_6wigr")
 
-[node name="text" type="RichTextLabel" parent="inventory/cube/g"]
+[node name="text" type="RichTextLabel" parent="inventory/cube/g" unique_id=1991702067]
 layout_mode = 0
 offset_left = -320.0
 offset_top = 391.0
@@ -492,7 +492,7 @@ text = "The cube is a mythical, magical shield wielded by only the strongest war
 TIP: Holding the cube slows you down, but holding it while sliding retains your momentum."
 fit_content = true
 
-[node name="mr man" type="Button" parent="inventory"]
+[node name="mr man" type="Button" parent="inventory" unique_id=1571927511]
 layout_mode = 0
 offset_left = 508.0
 offset_top = 26.0
@@ -501,13 +501,13 @@ offset_bottom = 122.0
 theme_override_font_sizes/font_size = 32
 text = "Mr. man"
 
-[node name="g" type="Control" parent="inventory/mr man"]
+[node name="g" type="Control" parent="inventory/mr man" unique_id=2129491194]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="texture" type="TextureRect" parent="inventory/mr man/g"]
+[node name="texture" type="TextureRect" parent="inventory/mr man/g" unique_id=360847529]
 layout_mode = 0
 offset_left = -265.0
 offset_top = 124.0
@@ -516,7 +516,7 @@ offset_bottom = 623.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("15_lnf0i")
 
-[node name="text" type="RichTextLabel" parent="inventory/mr man/g"]
+[node name="text" type="RichTextLabel" parent="inventory/mr man/g" unique_id=1946734136]
 layout_mode = 0
 offset_left = -481.5
 offset_top = 391.0
@@ -529,14 +529,14 @@ text = "Mr. Man is an incrediby powerful being from another galaxy who's been su
 TIP: Mr. Man is one of the only reliable counters to the projectiles."
 fit_content = true
 
-[node name="pizzaman inventory" type="Control" parent="inventory"]
+[node name="pizzaman inventory" type="Control" parent="inventory" unique_id=1776632291]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.4, 0.4)
 script = ExtResource("16_48ryc")
 
-[node name="arrow" type="TextureRect" parent="inventory/pizzaman inventory"]
+[node name="arrow" type="TextureRect" parent="inventory/pizzaman inventory" unique_id=1035395089]
 layout_mode = 0
 offset_left = 1939.9999
 offset_top = 17.5
@@ -545,7 +545,7 @@ offset_bottom = 146.5
 scale = Vector2(2.3, 2.3)
 texture = ExtResource("13_i42df")
 
-[node name="point counter" type="RichTextLabel" parent="inventory/pizzaman inventory"]
+[node name="point counter" type="RichTextLabel" parent="inventory/pizzaman inventory" unique_id=1269601741]
 layout_mode = 0
 offset_left = 2050.0002
 offset_top = 297.5
@@ -559,7 +559,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "points : 10"
 script = ExtResource("22_6wigr")
 
-[node name="light blue ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="light blue ball" parent="inventory/pizzaman inventory" unique_id=1654943736 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 1582.4999
 offset_top = 407.5
@@ -569,7 +569,7 @@ texture_normal = ExtResource("18_x16fv")
 point_cost = 4
 ball = "light blue ball"
 
-[node name="red ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="red ball" parent="inventory/pizzaman inventory" unique_id=1488374724 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 1927.4999
 offset_top = 402.5
@@ -582,7 +582,7 @@ ball = "red ball"
 [node name="description" parent="inventory/pizzaman inventory/red ball" index="1"]
 text = "The world moves too fast sometimes and this ball is here to help out! It can slow down the boss on impact!"
 
-[node name="orange ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="orange ball" parent="inventory/pizzaman inventory" unique_id=1303973285 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 2234.9998
 offset_top = 407.5
@@ -595,7 +595,7 @@ ball = "orange ball"
 [node name="description" parent="inventory/pizzaman inventory/orange ball" index="1"]
 text = "ZAP! This ball can place lightning rods on the ground and attract lightning between them. Careful not to step into it though!"
 
-[node name="green ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="green ball" parent="inventory/pizzaman inventory" unique_id=1387405355 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 2547.4998
 offset_top = 410.00003
@@ -608,7 +608,7 @@ ball = "green ball"
 [node name="description" parent="inventory/pizzaman inventory/green ball" index="1"]
 text = "Are you tired? Then this ball is just the ball for you! It gives stamina upon hitting the boss!"
 
-[node name="yellow ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="yellow ball" parent="inventory/pizzaman inventory" unique_id=1701088520 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 1577.4998
 offset_top = 732.49994
@@ -621,7 +621,7 @@ ball = "yellow ball"
 [node name="description" parent="inventory/pizzaman inventory/yellow ball" index="1"]
 text = "Dont lose your focus! This ball only deals damage if you keep looking at the boss after firing, but the damage slowly increases over time!"
 
-[node name="blue ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="blue ball" parent="inventory/pizzaman inventory" unique_id=530141370 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 1917.4998
 offset_top = 732.5
@@ -634,7 +634,7 @@ ball = "blue ball"
 [node name="description" parent="inventory/pizzaman inventory/blue ball" index="1"]
 text = "It's not lag, its a feature! This ball deals great damage, but shots takes a second to process."
 
-[node name="pink ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="pink ball" parent="inventory/pizzaman inventory" unique_id=1967797616 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 2234.9998
 offset_top = 735.0
@@ -645,9 +645,9 @@ point_cost = 2
 ball = "pink ball"
 
 [node name="description" parent="inventory/pizzaman inventory/pink ball" index="1"]
-text = "Be careful! This ball deals great damage to the boss at the cost of your own health."
+text = "Are you hurt? Well then this ball is just for you! It takes up your entire stamina bar, but the more stamina you have the more you heal!"
 
-[node name="purple ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="purple ball" parent="inventory/pizzaman inventory" unique_id=881116613 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 2547.4998
 offset_top = 732.5
@@ -662,7 +662,7 @@ text = "Have you
 A W O K E N?
  Then this ball is just the ball for you! It consumes your entire stamina bar and converts it into damage upon hitting the boss!"
 
-[node name="rainbow ball" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="rainbow ball" parent="inventory/pizzaman inventory" unique_id=868630577 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 2079.9998
 offset_top = 1072.4999
@@ -675,7 +675,7 @@ ball = "rainbow ball"
 [node name="description" parent="inventory/pizzaman inventory/rainbow ball" index="1"]
 text = "The holy grail of balls! This ball uses a random ball's effect every time you use it."
 
-[node name="fucking peak" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="fucking peak" parent="inventory/pizzaman inventory" unique_id=517825614 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 4270.0
 offset_top = 797.4999
@@ -683,7 +683,7 @@ offset_right = 4310.0
 offset_bottom = 837.4999
 ball = "fucking peak"
 
-[node name="poison" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="poison" parent="inventory/pizzaman inventory" unique_id=82742468 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 4270.0
 offset_top = 797.4999
@@ -691,7 +691,7 @@ offset_right = 4310.0
 offset_bottom = 837.4999
 ball = "poison"
 
-[node name="bob" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="bob" parent="inventory/pizzaman inventory" unique_id=1974436023 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 4270.0
 offset_top = 797.4999
@@ -699,7 +699,7 @@ offset_right = 4310.0
 offset_bottom = 837.4999
 ball = "vamp"
 
-[node name="vamp" parent="inventory/pizzaman inventory" instance=ExtResource("17_ffqrc")]
+[node name="vamp" parent="inventory/pizzaman inventory" unique_id=464746012 instance=ExtResource("17_ffqrc")]
 layout_mode = 0
 offset_left = 4270.0
 offset_top = 797.4999
@@ -707,7 +707,7 @@ offset_right = 4310.0
 offset_bottom = 837.4999
 ball = "bob"
 
-[node name="back arrow" type="TextureButton" parent="inventory"]
+[node name="back arrow" type="TextureButton" parent="inventory" unique_id=1788925570]
 layout_mode = 0
 offset_left = -2.0
 offset_top = 131.0
@@ -715,26 +715,24 @@ offset_right = 299.00073
 offset_bottom = 324.00037
 texture_normal = ExtResource("24_ffqrc")
 
-[node name="dark souls mode" type="AudioStreamPlayer" parent="."]
+[node name="dark souls mode" type="AudioStreamPlayer" parent="." unique_id=902537332]
 stream = ExtResource("3_4ytvr")
 volume_db = -3.849
 
-[node name="overlay" type="ColorRect" parent="."]
+[node name="overlay" type="ColorRect" parent="." unique_id=64315641]
 visible = false
 layout_mode = 0
 offset_right = 3449.0
 offset_bottom = 1861.0
 color = Color(1, 0, 0, 1)
 
-[node name="animation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ufwb2")
-}
+[node name="animation" type="AnimationPlayer" parent="." unique_id=1501581697]
+libraries/ = SubResource("AnimationLibrary_ufwb2")
 
-[node name="cam" type="Camera2D" parent="."]
+[node name="cam" type="Camera2D" parent="." unique_id=1880872746]
 position = Vector2(576, 324)
 
-[node name="really fuck me timer" type="Timer" parent="."]
+[node name="really fuck me timer" type="Timer" parent="." unique_id=137630724]
 
 [connection signal="pressed" from="title screen/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="title screen/endless" to="." method="_on_endless_pressed"]

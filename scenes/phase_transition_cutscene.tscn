@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cybf0g4obr3mw"]
+[gd_scene format=3 uid="uid://cybf0g4obr3mw"]
 
 [ext_resource type="PackedScene" uid="uid://bca6w8102qd28" path="res://scenes/pasta_texture.tscn" id="1_ei55o"]
 [ext_resource type="AudioStream" uid="uid://fte8rvayghho" path="res://sounds/roblox-explosion-sound.mp3" id="2_7atcj"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://c4o2dae1igs52" path="res://scenes/pasta tentacle.glb" id="10_gaai3"]
 [ext_resource type="PackedScene" uid="uid://c1hfrbmoxbbfs" path="res://scenes/bowl.blend" id="12_pmvgp"]
 [ext_resource type="Texture2D" uid="uid://ha3c1wt0cyg0" path="res://images/pasta sauce.png" id="13_gaai3"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pmvgp"]
+viewport_path = NodePath("pasta texture")
 
 [sub_resource type="Animation" id="Animation_1dma6"]
 length = 0.001
@@ -595,85 +598,86 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pkkxd"]
 material = SubResource("StandardMaterial3D_ur7pv")
 
-[node name="phase transition cutscene" type="Node3D"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gaai3"]
+viewport_path = NodePath("pasta texture")
 
-[node name="pasta" parent="." instance=ExtResource("1_ei55o")]
-transform = Transform3D(0.018434007, 0.049160603, -0.99862015, -0.047914274, 0.997686, 0.04823012, 0.99868053, 0.046959132, 0.020746855, 25, -0.178, 0)
+[node name="phase transition cutscene" type="Node3D" unique_id=1632606462]
+
+[node name="pasta" parent="." unique_id=1766611160 instance=ExtResource("1_ei55o")]
+transform = Transform3D(0.018434007, 0.049160603, -0.9986201, -0.04791427, 0.997686, 0.04823012, 0.9986805, 0.046959132, 0.020746855, 184.1003, 47.794697, 0)
 billboard = 0
+texture = SubResource("ViewportTexture_pmvgp")
 
-[node name="epxlosion sound" type="AudioStreamPlayer3D" parent="pasta"]
+[node name="epxlosion sound" type="AudioStreamPlayer3D" parent="pasta" unique_id=1899098929]
 transform = Transform3D(1.0000005, -1.4901161e-08, 0, 0, 1.0000002, 3.958121e-09, 0, 3.4924597e-10, 1.0000005, -13.564879, -1.4574387, -0.21158981)
 stream = ExtResource("2_7atcj")
 volume_db = 5.804
 
-[node name="epxlosion sound2" type="AudioStreamPlayer3D" parent="pasta"]
+[node name="epxlosion sound2" type="AudioStreamPlayer3D" parent="pasta" unique_id=1404106140]
 transform = Transform3D(1.0000005, 1.4901161e-08, 9.313226e-10, 0, 1.0000004, 0, 0, 0, 1.0000004, 14.85216, 3.5510285, 0.24564552)
 stream = ExtResource("2_7atcj")
 volume_db = 3.485
 
-[node name="epxlosion sound3" type="AudioStreamPlayer3D" parent="pasta"]
+[node name="epxlosion sound3" type="AudioStreamPlayer3D" parent="pasta" unique_id=459094177]
 transform = Transform3D(1.0000005, 0, 0, 0, 1.0000002, 3.7252903e-09, 1.8626451e-09, 2.3283064e-10, 1.0000004, 0.81165177, -8.183284, -0.30114174)
 stream = ExtResource("2_7atcj")
 volume_db = 3.458
 
-[node name="epxlosion sound4" type="AudioStreamPlayer3D" parent="pasta"]
+[node name="epxlosion sound4" type="AudioStreamPlayer3D" parent="pasta" unique_id=869586506]
 transform = Transform3D(1.0000004, 1.4901161e-08, 0, -1.4901161e-08, 1.0000004, -5.47152e-09, -9.313226e-10, 2.4447218e-09, 1.0000005, -1.5600972, 8.384922, 0.15037727)
 stream = ExtResource("2_7atcj")
 volume_db = 6.224
 
-[node name="animation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_noppn")
-}
+[node name="animation" type="AnimationPlayer" parent="." unique_id=86363889]
+libraries/ = SubResource("AnimationLibrary_noppn")
 script = ExtResource("3_vrhqf")
 
-[node name="song" type="AudioStreamPlayer" parent="."]
+[node name="song" type="AudioStreamPlayer" parent="." unique_id=140944931]
 stream = ExtResource("3_306d3")
 volume_db = -1.656
 script = ExtResource("5_upr8p")
 
-[node name="arena" parent="." instance=ExtResource("4_1dma6")]
+[node name="arena" parent="." unique_id=149783476 instance=ExtResource("4_1dma6")]
 transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, -16.499493, 0)
 
-[node name="environment" type="Node3D" parent="."]
+[node name="environment" type="Node3D" parent="." unique_id=795628420]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environment" unique_id=910843707]
 environment = SubResource("Environment_1dma6")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment" unique_id=2114189320]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="camera" type="Camera3D" parent="."]
-transform = Transform3D(0.05102857, 0, -0.9986972, 0, 1, 0, 0.9986972, 0, 0.05102857, 0, 0, 0)
+[node name="camera" type="Camera3D" parent="." unique_id=1360327208]
+transform = Transform3D(0.17230701, 0, 0.9850433, 0, 1, 0, -0.9850433, 0, 0.17230701, 0, 0, 0)
 
-[node name="mesh (for scale)" type="MeshInstance3D" parent="."]
+[node name="mesh (for scale)" type="MeshInstance3D" parent="." unique_id=1342686403]
 transform = Transform3D(4.079704, 0, 0, 0, 3.824354, 0, 0, 0, 3.8764942, -6.5217404, -5.5674944, 0.10786247)
 mesh = SubResource("CapsuleMesh_pkkxd")
 skeleton = NodePath("../camera")
 
-[node name="explosion" type="Sprite3D" parent="."]
+[node name="explosion" type="Sprite3D" parent="." unique_id=545317653]
 transform = Transform3D(-1.8077958e-07, 0, -2.0531154, 0, 3.9893634, 0, 4.1357546, 0, -8.9744525e-08, 20.977737, -1.6157804, -11.823952)
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("5_306d3")
 
-[node name="explosion2" type="Sprite3D" parent="."]
+[node name="explosion2" type="Sprite3D" parent="." unique_id=1323624265]
 transform = Transform3D(-1.8077958e-07, 0, -2.0531154, 0, 3.9893634, 0, 4.1357546, 0, -8.9744525e-08, 22.06185, -1.6157804, 13.094269)
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("5_306d3")
 
-[node name="explosion3" type="Sprite3D" parent="."]
+[node name="explosion3" type="Sprite3D" parent="." unique_id=747983744]
 transform = Transform3D(-1.8077958e-07, 0, -2.0531154, 0, 3.9893634, 0, 4.1357546, 0, -8.9744525e-08, 18.655926, 5.1193223, 2.845006)
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("5_306d3")
 
-[node name="explosion4" type="Sprite3D" parent="."]
+[node name="explosion4" type="Sprite3D" parent="." unique_id=505634523]
 transform = Transform3D(-1.8077958e-07, 0, -2.0531154, 0, 3.9893634, 0, 4.1357546, 0, -8.9744525e-08, 20.977737, -10.074333, -2.563469)
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("5_306d3")
 
-[node name="text" type="RichTextLabel" parent="."]
-modulate = Color(1, 1, 1, 0)
+[node name="text" type="RichTextLabel" parent="." unique_id=771788930]
 offset_left = 233.0
 offset_top = 568.0
 offset_right = 1218.0
@@ -683,68 +687,69 @@ theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 41
 text = "Pasta: N-NO! THIS CAN'T BE!"
 
-[node name="beeg explosion" type="Sprite3D" parent="."]
+[node name="beeg explosion" type="Sprite3D" parent="." unique_id=617185226]
 transform = Transform3D(24.96725, 0, -0.07605904, 0.40553793, 21.920296, 1.110882, 0.7271735, -12.224743, 1.991932, -1.9964924, 12.582428, 50.720863)
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("5_306d3")
 
-[node name="epxlosion sound5" type="AudioStreamPlayer3D" parent="."]
+[node name="epxlosion sound5" type="AudioStreamPlayer3D" parent="." unique_id=1546855615]
 transform = Transform3D(1, 1.4901156e-08, 9.313222e-10, -1.4901156e-08, 1, -2.4447209e-09, -9.3132224e-10, 2.4447209e-09, 1, 1.0736699, 23.299026, 61.506554)
 stream = ExtResource("2_7atcj")
 volume_db = 6.061
 
-[node name="arena platform" parent="." instance=ExtResource("7_upr8p")]
+[node name="arena platform" parent="." unique_id=1471094482 instance=ExtResource("7_upr8p")]
 transform = Transform3D(-23.817467, 0, -7.5979166, 0, 25, 0, 7.5979166, 0, -23.817467, -283.9273, 0, 0)
 
-[node name="arena debris" parent="." instance=ExtResource("8_vmmng")]
+[node name="arena debris" parent="." unique_id=962164345 instance=ExtResource("8_vmmng")]
 transform = Transform3D(4.79, 0, 0, 0, 4.79, 0, 0, 0, 4.79, -315.98163, 0, 0)
 
-[node name="arena debris2" parent="." instance=ExtResource("8_vmmng")]
+[node name="arena debris2" parent="." unique_id=638246614 instance=ExtResource("8_vmmng")]
 transform = Transform3D(-0.8044269, 0, 4.7219696, 0, 4.79, 0, -4.7219696, 0, -0.8044269, -272.67804, 0, 19.969204)
 
-[node name="arena debris3" parent="." instance=ExtResource("8_vmmng")]
+[node name="arena debris3" parent="." unique_id=1021894197 instance=ExtResource("8_vmmng")]
 transform = Transform3D(-0.8044269, 0, 4.7219696, 0, 4.79, 0, -4.7219696, 0, -0.8044269, -272.67804, 0, -90.79118)
 
-[node name="arena debris4" parent="." instance=ExtResource("8_vmmng")]
+[node name="arena debris4" parent="." unique_id=1685664057 instance=ExtResource("8_vmmng")]
 transform = Transform3D(-4.789885, 0, -0.033189178, 0, 4.79, 0, 0.033189178, 0, -4.789885, -344.1817, 0, -38.97521)
 
-[node name="pasta 2 electric boogaloo" parent="." instance=ExtResource("1_ei55o")]
+[node name="pasta 2 electric boogaloo" parent="." unique_id=1281698756 instance=ExtResource("1_ei55o")]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 billboard = 0
+texture = SubResource("ViewportTexture_gaai3")
 script = ExtResource("9_pmvgp")
 
-[node name="pasta tentacle" parent="pasta 2 electric boogaloo" instance=ExtResource("10_gaai3")]
+[node name="pasta tentacle" parent="pasta 2 electric boogaloo" unique_id=347910218 instance=ExtResource("10_gaai3")]
 transform = Transform3D(-1.543244, -1.2707553, -0.059824895, -1.2698015, 1.5444031, -0.049224716, 0.07747316, -3.5527137e-16, -1.9984989, -12.825825, 5.2924194, -2.8846073)
 
-[node name="pasta tentacle2" parent="pasta 2 electric boogaloo" instance=ExtResource("10_gaai3")]
+[node name="pasta tentacle2" parent="pasta 2 electric boogaloo" unique_id=496222243 instance=ExtResource("10_gaai3")]
 transform = Transform3D(-1.450356, 1.3759747, -0.056224037, 1.3749423, 1.4514458, 0.053300567, 0.07747317, 2.3013396e-09, -1.9984992, 11.13308, 5.2924194, -2.8846073)
 
-[node name="pasta tentacle3" parent="pasta 2 electric boogaloo" instance=ExtResource("10_gaai3")]
+[node name="pasta tentacle3" parent="pasta 2 electric boogaloo" unique_id=1759820903 instance=ExtResource("10_gaai3")]
 transform = Transform3D(1.5160174, 1.3031645, 0.05876943, 1.302187, -1.5171562, 0.050480165, 0.07747317, 6.378069e-09, -1.9984993, 11.130405, -3.5232067, -2.8846073)
 
-[node name="pasta tentacle4" parent="pasta 2 electric boogaloo" instance=ExtResource("10_gaai3")]
+[node name="pasta tentacle4" parent="pasta 2 electric boogaloo" unique_id=1260790804 instance=ExtResource("10_gaai3")]
 transform = Transform3D(1.4791375, -1.3449405, 0.057339776, -1.3439312, -1.4802488, -0.052098393, 0.07747317, 4.710165e-09, -1.9984992, -12.823132, -4.0303993, -2.8846073)
 
-[node name="bowl" parent="pasta 2 electric boogaloo" instance=ExtResource("12_pmvgp")]
+[node name="bowl" parent="pasta 2 electric boogaloo" unique_id=950675243 instance=ExtResource("12_pmvgp")]
 transform = Transform3D(49.999985, 0, 0, 0, 49.999985, 0, 0, 0, 49.999985, 2.972007, -24.01168, 83.24835)
 
-[node name="dead" type="Sprite3D" parent="pasta 2 electric boogaloo"]
+[node name="dead" type="Sprite3D" parent="pasta 2 electric boogaloo" unique_id=503203594]
 transform = Transform3D(12.738243, 0, 0, 0, -1.1102782e-06, -49.999966, 0, 25.400208, -2.1855685e-06, 2.9720056, -29.234358, 81.93499)
 texture = ExtResource("13_gaai3")
 
-[node name="debris" type="Node3D" parent="."]
+[node name="debris" type="Node3D" parent="." unique_id=1998213193]
 visible = false
 
-[node name="arena debris5" parent="debris" instance=ExtResource("8_vmmng")]
+[node name="arena debris5" parent="debris" unique_id=1665746394 instance=ExtResource("8_vmmng")]
 transform = Transform3D(4.79, 0, 0, 0, 4.79, 0, 0, 0, 4.79, -23.250824, 0, 28.59655)
 
-[node name="arena debris6" parent="debris" instance=ExtResource("8_vmmng")]
+[node name="arena debris6" parent="debris" unique_id=1360941330 instance=ExtResource("8_vmmng")]
 transform = Transform3D(-0.8044269, 0, 4.7219696, 0, 4.79, 0, -4.7219696, 0, -0.8044269, 20.052765, 0, 48.565754)
 
-[node name="arena debris7" parent="debris" instance=ExtResource("8_vmmng")]
+[node name="arena debris7" parent="debris" unique_id=1655998880 instance=ExtResource("8_vmmng")]
 transform = Transform3D(-0.8044269, 0, 4.7219696, 0, 4.79, 0, -4.7219696, 0, -0.8044269, 20.052765, 0, -62.194633)
 
-[node name="arena debris8" parent="debris" instance=ExtResource("8_vmmng")]
+[node name="arena debris8" parent="debris" unique_id=1977115428 instance=ExtResource("8_vmmng")]
 transform = Transform3D(-4.789885, 0, -0.033188846, 0, 4.79, 0, 0.033188846, 0, -4.789885, -51.450897, 0, -10.378658)
 
 [connection signal="finished" from="song" to="song" method="_on_finished"]

@@ -64,8 +64,8 @@ func _physics_process(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, SPEED / 100)
 				velocity.z = move_toward(velocity.z, 0, SPEED / 100)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED / 500) #<- this makes you lose velocity slower
-		velocity.z = move_toward(velocity.z, 0, SPEED / 500) #<- this makes you lose velocity slower
+		velocity.x = move_toward(velocity.x, 0, SPEED / 2500) #<- this makes you lose velocity slower
+		velocity.z = move_toward(velocity.z, 0, SPEED / 2500) #<- this makes you lose velocity slower
 	
 	var cam_input_dir := Input.get_vector("camera_right", "camera_left", "camera_down", "camera_up")
 	rotation_degrees.y += cam_input_dir.x * SENSITIVITY * 10

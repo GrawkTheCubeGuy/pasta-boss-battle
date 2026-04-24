@@ -576,7 +576,7 @@ offset_top = 402.5
 offset_right = 2177.5
 offset_bottom = 662.5
 texture_normal = ExtResource("20_48ryc")
-point_cost = 4
+point_cost = 2
 ball = "red ball"
 
 [node name="description" parent="inventory/pizzaman inventory/red ball" index="1"]

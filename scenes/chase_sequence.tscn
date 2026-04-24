@@ -36,11 +36,11 @@ size = Vector3(21.126709, 10.571228, 15.143494)
 [node name="player" parent="." unique_id=357719235 instance=ExtResource("2_ehy5y")]
 transform = Transform3D(-0.99999857, 0, -0.0017628074, 0, 1, 0, 0.0017628074, 0, -0.99999857, 0, 1.2788819, 0)
 
-[node name="fire" parent="player/camera" index="0" node_paths=PackedStringArray("boss", "scene_root")]
+[node name="fire" parent="player/camera" parent_id_path=PackedInt32Array(357719235, 1084508641) index="0" node_paths=PackedStringArray("boss", "scene_root")]
 boss = NodePath("../../../boss chaser/BossObject")
 scene_root = NodePath("../../..")
 
-[node name="health" parent="player/boss health" index="0"]
+[node name="health" parent="player/boss health" parent_id_path=PackedInt32Array(357719235, 1900043906) index="0"]
 offset_left = -61.0
 offset_top = -4.0
 offset_right = 987.0

@@ -17,7 +17,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="pasta boss battle"
 run/main_scene="uid://dodw1l3g54dte"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://images/icon.svg"
+config/icon="uid://c5acqrc67a32a"
+
+[audio]
+
+buses/default_bus_layout="uid://c1vuunyl46o23"
 
 [autoload]
 
@@ -160,6 +164,11 @@ jump={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 
 [shader_globals]
 

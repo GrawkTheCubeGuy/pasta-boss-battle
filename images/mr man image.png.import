@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://226gd3kjdmri"
 path.s3tc="res://.godot/imported/mr man image.png-6d8d30433d80b97cbc9f08058d2ab686.s3tc.ctex"
+path.etc2="res://.godot/imported/mr man image.png-6d8d30433d80b97cbc9f08058d2ab686.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://images/mr man image.png"
-dest_files=["res://.godot/imported/mr man image.png-6d8d30433d80b97cbc9f08058d2ab686.s3tc.ctex"]
+dest_files=["res://.godot/imported/mr man image.png-6d8d30433d80b97cbc9f08058d2ab686.s3tc.ctex", "res://.godot/imported/mr man image.png-6d8d30433d80b97cbc9f08058d2ab686.etc2.ctex"]
 
 [params]
 

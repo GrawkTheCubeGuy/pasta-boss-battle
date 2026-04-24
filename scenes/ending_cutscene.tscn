@@ -391,8 +391,10 @@ texture = SubResource("ViewportTexture_n8m0g")
 [node name="texture spaghetti" parent="pasghetti" unique_id=1550096803 instance=ExtResource("10_1nhp7")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2132222957]
-offset_right = 1153.0
-offset_bottom = 649.0
+offset_left = -538.0
+offset_top = -166.0
+offset_right = 1849.0
+offset_bottom = 917.0
 color = Color(0, 0, 0, 1)
 
 [node name="concluding text" type="RichTextLabel" parent="." unique_id=1033276304]

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cm6sfm6rkovx5"
 path.s3tc="res://.godot/imported/fork.png-3a1f28433cf0341d70071a391d0658f1.s3tc.ctex"
+path.etc2="res://.godot/imported/fork.png-3a1f28433cf0341d70071a391d0658f1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://images/fork.png"
-dest_files=["res://.godot/imported/fork.png-3a1f28433cf0341d70071a391d0658f1.s3tc.ctex"]
+dest_files=["res://.godot/imported/fork.png-3a1f28433cf0341d70071a391d0658f1.s3tc.ctex", "res://.godot/imported/fork.png-3a1f28433cf0341d70071a391d0658f1.etc2.ctex"]
 
 [params]
 

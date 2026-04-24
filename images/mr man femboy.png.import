@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhjdultseeghs"
 path.s3tc="res://.godot/imported/mr man femboy.png-ed1b1a48db3b4b1bfd55554e085d1013.s3tc.ctex"
+path.etc2="res://.godot/imported/mr man femboy.png-ed1b1a48db3b4b1bfd55554e085d1013.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://images/mr man femboy.png"
-dest_files=["res://.godot/imported/mr man femboy.png-ed1b1a48db3b4b1bfd55554e085d1013.s3tc.ctex"]
+dest_files=["res://.godot/imported/mr man femboy.png-ed1b1a48db3b4b1bfd55554e085d1013.s3tc.ctex", "res://.godot/imported/mr man femboy.png-ed1b1a48db3b4b1bfd55554e085d1013.etc2.ctex"]
 
 [params]
 

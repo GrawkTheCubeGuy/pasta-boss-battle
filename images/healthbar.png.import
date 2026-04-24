@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ct5cky1c2k1bq"
 path.s3tc="res://.godot/imported/healthbar.png-4c42d85d2cd2effb21b3d9c548984500.s3tc.ctex"
+path.etc2="res://.godot/imported/healthbar.png-4c42d85d2cd2effb21b3d9c548984500.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://images/healthbar.png"
-dest_files=["res://.godot/imported/healthbar.png-4c42d85d2cd2effb21b3d9c548984500.s3tc.ctex"]
+dest_files=["res://.godot/imported/healthbar.png-4c42d85d2cd2effb21b3d9c548984500.s3tc.ctex", "res://.godot/imported/healthbar.png-4c42d85d2cd2effb21b3d9c548984500.etc2.ctex"]
 
 [params]
 

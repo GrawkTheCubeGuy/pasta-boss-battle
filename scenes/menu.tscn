@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bl7u6ps4bt4xv" path="res://ball/pink ball.tres" id="26_48ryc"]
 [ext_resource type="Texture2D" uid="uid://cdhpjb5g101w4" path="res://ball/purple ball.tres" id="27_hwfsl"]
 [ext_resource type="Texture2D" uid="uid://bsrpjrbwb8dod" path="res://ball/rainbow ball.tres" id="27_vhsb5"]
+[ext_resource type="Script" uid="uid://bh2caidl16jbr" path="res://scripts/cam.gd" id="31_a04p5"]
 
 [sub_resource type="Animation" id="Animation_mj5lg"]
 length = 0.001
@@ -345,7 +346,7 @@ script = ExtResource("8_7jp70")
 
 [node name="background music" type="AudioStreamPlayer" parent="title screen" unique_id=212225338]
 stream = ExtResource("12_6cdou")
-volume_db = -17.703
+volume_db = -9.552
 autoplay = true
 
 [node name="play" type="TextureButton" parent="title screen" unique_id=50754674]
@@ -579,7 +580,7 @@ texture_normal = ExtResource("20_48ryc")
 point_cost = 2
 ball = "red ball"
 
-[node name="description" parent="inventory/pizzaman inventory/red ball" index="1"]
+[node name="description" parent="inventory/pizzaman inventory/red ball" index="1" unique_id=1584681283]
 text = "The world moves too fast sometimes and this ball is here to help out! It can slow down the boss on impact!"
 
 [node name="orange ball" parent="inventory/pizzaman inventory" unique_id=1303973285 instance=ExtResource("17_ffqrc")]
@@ -592,7 +593,7 @@ texture_normal = ExtResource("21_vhsb5")
 point_cost = 4
 ball = "orange ball"
 
-[node name="description" parent="inventory/pizzaman inventory/orange ball" index="1"]
+[node name="description" parent="inventory/pizzaman inventory/orange ball" index="1" unique_id=1584681283]
 text = "ZAP! This ball can place lightning rods on the ground and attract lightning between them. Careful not to step into it though!"
 
 [node name="green ball" parent="inventory/pizzaman inventory" unique_id=1387405355 instance=ExtResource("17_ffqrc")]
@@ -605,7 +606,7 @@ texture_normal = ExtResource("24_x16fv")
 point_cost = 4
 ball = "green ball"
 
-[node name="description" parent="inventory/pizzaman inventory/green ball" index="1"]
+[node name="description" parent="inventory/pizzaman inventory/green ball" index="1" unique_id=1584681283]
 text = "Are you tired? Then this ball is just the ball for you! It gives stamina upon hitting the boss!"
 
 [node name="yellow ball" parent="inventory/pizzaman inventory" unique_id=1701088520 instance=ExtResource("17_ffqrc")]
@@ -618,7 +619,7 @@ texture_normal = ExtResource("23_lnf0i")
 point_cost = 6
 ball = "yellow ball"
 
-[node name="description" parent="inventory/pizzaman inventory/yellow ball" index="1"]
+[node name="description" parent="inventory/pizzaman inventory/yellow ball" index="1" unique_id=1584681283]
 text = "Dont lose your focus! This ball only deals damage if you keep looking at the boss after firing, but the damage slowly increases over time!"
 
 [node name="blue ball" parent="inventory/pizzaman inventory" unique_id=530141370 instance=ExtResource("17_ffqrc")]
@@ -631,7 +632,7 @@ texture_normal = ExtResource("25_g54pe")
 point_cost = 6
 ball = "blue ball"
 
-[node name="description" parent="inventory/pizzaman inventory/blue ball" index="1"]
+[node name="description" parent="inventory/pizzaman inventory/blue ball" index="1" unique_id=1584681283]
 text = "It's not lag, its a feature! This ball deals great damage, but shots takes a second to process."
 
 [node name="pink ball" parent="inventory/pizzaman inventory" unique_id=1967797616 instance=ExtResource("17_ffqrc")]
@@ -644,7 +645,7 @@ texture_normal = ExtResource("26_48ryc")
 point_cost = 2
 ball = "pink ball"
 
-[node name="description" parent="inventory/pizzaman inventory/pink ball" index="1"]
+[node name="description" parent="inventory/pizzaman inventory/pink ball" index="1" unique_id=1584681283]
 text = "Are you hurt? Well then this ball is just for you! It takes up your entire stamina bar, but the more stamina you have the more you heal!"
 
 [node name="purple ball" parent="inventory/pizzaman inventory" unique_id=881116613 instance=ExtResource("17_ffqrc")]
@@ -654,10 +655,10 @@ offset_top = 732.5
 offset_right = 2797.4998
 offset_bottom = 992.5
 texture_normal = ExtResource("27_hwfsl")
-point_cost = 2
+point_cost = 4
 ball = "purple ball"
 
-[node name="description" parent="inventory/pizzaman inventory/purple ball" index="1"]
+[node name="description" parent="inventory/pizzaman inventory/purple ball" index="1" unique_id=1584681283]
 text = "Have you 
 A W O K E N?
  Then this ball is just the ball for you! It consumes your entire stamina bar and converts it into damage upon hitting the boss!"
@@ -672,7 +673,7 @@ texture_normal = ExtResource("27_vhsb5")
 point_cost = 10
 ball = "rainbow ball"
 
-[node name="description" parent="inventory/pizzaman inventory/rainbow ball" index="1"]
+[node name="description" parent="inventory/pizzaman inventory/rainbow ball" index="1" unique_id=1584681283]
 text = "The holy grail of balls! This ball uses a random ball's effect every time you use it."
 
 [node name="fucking peak" parent="inventory/pizzaman inventory" unique_id=517825614 instance=ExtResource("17_ffqrc")]
@@ -717,13 +718,16 @@ texture_normal = ExtResource("24_ffqrc")
 
 [node name="dark souls mode" type="AudioStreamPlayer" parent="." unique_id=902537332]
 stream = ExtResource("3_4ytvr")
-volume_db = -3.849
+volume_db = 3.964
 
 [node name="overlay" type="ColorRect" parent="." unique_id=64315641]
 visible = false
+z_index = 4096
 layout_mode = 0
-offset_right = 3449.0
-offset_bottom = 1861.0
+offset_left = -614.0
+offset_top = -399.0
+offset_right = 2835.0
+offset_bottom = 1462.0
 color = Color(1, 0, 0, 1)
 
 [node name="animation" type="AnimationPlayer" parent="." unique_id=1501581697]
@@ -731,6 +735,19 @@ libraries/ = SubResource("AnimationLibrary_ufwb2")
 
 [node name="cam" type="Camera2D" parent="." unique_id=1880872746]
 position = Vector2(576, 324)
+script = ExtResource("31_a04p5")
+
+[node name="scummy way of implemeting this but sh also hi dataminers" type="ColorRect" parent="cam" unique_id=1756923814]
+offset_left = -877.0
+offset_top = -377.0
+offset_right = -575.0
+offset_bottom = 517.0
+
+[node name="scummy way of implemeting this but sh also hi dataminers2" type="ColorRect" parent="cam" unique_id=1707413908]
+offset_left = 574.0
+offset_top = -422.0
+offset_right = 876.0
+offset_bottom = 472.0
 
 [node name="really fuck me timer" type="Timer" parent="." unique_id=137630724]
 

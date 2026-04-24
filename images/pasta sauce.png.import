@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ha3c1wt0cyg0"
 path.s3tc="res://.godot/imported/pasta sauce.png-48d9623965f74398411a85f761c73564.s3tc.ctex"
+path.etc2="res://.godot/imported/pasta sauce.png-48d9623965f74398411a85f761c73564.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://images/pasta sauce.png"
-dest_files=["res://.godot/imported/pasta sauce.png-48d9623965f74398411a85f761c73564.s3tc.ctex"]
+dest_files=["res://.godot/imported/pasta sauce.png-48d9623965f74398411a85f761c73564.s3tc.ctex", "res://.godot/imported/pasta sauce.png-48d9623965f74398411a85f761c73564.etc2.ctex"]
 
 [params]
 

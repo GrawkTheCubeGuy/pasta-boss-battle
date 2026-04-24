@@ -69,7 +69,8 @@ func _physics_process(delta: float) -> void:
 	
 	var cam_input_dir := Input.get_vector("camera_right", "camera_left", "camera_down", "camera_up")
 	rotation_degrees.y += cam_input_dir.x * SENSITIVITY * 10
-	rotation_degrees.x += cam_input_dir.y * SENSITIVITY * 10
+	camera.rotation_degrees.x += cam_input_dir.y * SENSITIVITY * 10
+	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90 , 90)
 	
 	move_and_slide()
 

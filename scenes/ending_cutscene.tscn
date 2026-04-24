@@ -310,7 +310,7 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g5emf"]
 material = SubResource("StandardMaterial3D_ur7pv")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ooaeb"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gsj1l"]
 viewport_path = NodePath("pasta texture")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n8m0g"]
@@ -349,7 +349,7 @@ transform = Transform3D(-9.706703, 0, -2.404144, 0, 10, 0, 2.404144, 0, -9.70670
 [node name="pasta 2 electric boogaloo" parent="." unique_id=1455084202 instance=ExtResource("2_ortsv")]
 transform = Transform3D(-2.9949558, 0, 0.17389461, 0, 3, 0, -0.17389461, 0, -2.9949558, -2.4769745, -32.001266, 17.041061)
 billboard = 0
-texture = SubResource("ViewportTexture_ooaeb")
+texture = SubResource("ViewportTexture_gsj1l")
 script = ExtResource("3_qygyp")
 
 [node name="pasta tentacle" parent="pasta 2 electric boogaloo" unique_id=748829235 instance=ExtResource("4_tk2eg")]
@@ -405,6 +405,7 @@ text = "And then they passionately made out...
 							THE END"
 
 [node name="concluding text2" type="RichTextLabel" parent="." unique_id=848916747]
+modulate = Color(1, 1, 1, 0)
 offset_left = 39.0
 offset_top = 219.0
 offset_right = 1161.0
@@ -416,6 +417,7 @@ text = " Credits to:
  · Grawk The Cube Guy (me) for programming"
 
 [node name="secret concluding text" type="RichTextLabel" parent="." unique_id=1909694784]
+modulate = Color(1, 1, 1, 0)
 offset_left = 69.0
 offset_top = 500.0
 offset_right = 1191.0

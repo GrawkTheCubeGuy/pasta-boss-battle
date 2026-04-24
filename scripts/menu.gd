@@ -1,5 +1,6 @@
 extends Control
 
+const cheat_code_array_console : Array = ["Joypad Button 11 (D-pad Up)", "Joypad Button 11 (D-pad Up)", "Joypad Button 12 (D-pad Down)", "Joypad Button 12 (D-pad Down)", "Joypad Button 13 (D-pad Left)", "Joypad Button 14 (D-pad Right)", "Joypad Button 13 (D-pad Left)", "Joypad Button 14 (D-pad Right)", "Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)", "Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)"]
 const cheat_code_array : Array = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right", "B", "A"]
 var key_array : Array 
 var is_menu_h2p : bool = false
@@ -34,10 +35,12 @@ func _on_endless_pressed() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
 		key_array.append(event.as_text())
+	if event is InputEventJoypadButton and event.is_pressed() and not event.is_echo():
+		key_array.append(event.as_text())
 	if key_array.size() > cheat_code_array.size():
 		if not global.dark_souls_mode:
 			key_array.remove_at(0)
-	if key_array == cheat_code_array:
+	if key_array == cheat_code_array or key_array == cheat_code_array_console:
 		dark_souls_mode()
 		key_array = ["NO MORE DARK SOULS MODE >:("]
 		

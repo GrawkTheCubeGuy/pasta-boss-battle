@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ha3c1wt0cyg0" path="res://images/pasta sauce.png" id="9_6dixu"]
 [ext_resource type="Script" uid="uid://c6koosji8dvsn" path="res://scripts/end_zone.gd" id="9_xu0jf"]
 [ext_resource type="PackedScene" uid="uid://c1hfrbmoxbbfs" path="res://scenes/bowl.blend" id="10_uryd3"]
+[ext_resource type="AudioStream" uid="uid://c226wdwnl37do" path="res://sounds/chase sequence.mp3" id="13_rfnve"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uryd3"]
 
@@ -502,6 +503,11 @@ script = ExtResource("9_xu0jf")
 [node name="collis" type="CollisionShape3D" parent="end zone" unique_id=217955807]
 transform = Transform3D(0.3151066, 0, 0, 0, -0.054809432, -0.69408506, 0, 0.91312534, -0.041661754, 2.1359468, 10.250538, -323.21088)
 shape = SubResource("BoxShape3D_uryd3")
+
+[node name="song" type="AudioStreamPlayer" parent="." unique_id=2051287874]
+stream = ExtResource("13_rfnve")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="death zone" to="death zone" method="_on_body_entered"]
 [connection signal="body_entered" from="end zone" to="end zone" method="_on_body_entered"]

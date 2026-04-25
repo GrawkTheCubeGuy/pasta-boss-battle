@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ha3c1wt0cyg0" path="res://images/pasta sauce.png" id="9_6dixu"]
 [ext_resource type="Script" uid="uid://c6koosji8dvsn" path="res://scripts/end_zone.gd" id="9_xu0jf"]
 [ext_resource type="PackedScene" uid="uid://c1hfrbmoxbbfs" path="res://scenes/bowl.blend" id="10_uryd3"]
+[ext_resource type="AudioStream" uid="uid://dn1svevumo13e" path="res://sounds/chase sequence.mp3" id="13_rfnve"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uryd3"]
 
@@ -34,9 +35,9 @@ size = Vector3(21.126709, 10.571228, 15.143494)
 [node name="chase sequence" type="Node3D" unique_id=2008825147]
 
 [node name="player" parent="." unique_id=357719235 instance=ExtResource("2_ehy5y")]
-transform = Transform3D(-0.99999857, 0, -0.0017628074, 0, 1, 0, 0.0017628074, 0, -0.99999857, 0, 1.2788819, 0)
+transform = Transform3D(-0.99999857, 0, -0.0017628074, 0, 1, 0, 0.0017628074, 0, -0.99999857, -4.930336, 1.3364482, 0.01109314)
 
-[node name="fire" parent="player/camera" parent_id_path=PackedInt32Array(357719235, 1084508641) index="0" node_paths=PackedStringArray("boss", "scene_root")]
+[node name="fire" parent="player/camera" parent_id_path=PackedInt32Array(357719235, 1084508641) index="0" unique_id=1389927951 node_paths=PackedStringArray("boss", "scene_root")]
 boss = NodePath("../../../boss chaser/BossObject")
 scene_root = NodePath("../../..")
 
@@ -503,6 +504,11 @@ script = ExtResource("9_xu0jf")
 transform = Transform3D(0.3151066, 0, 0, 0, -0.054809432, -0.69408506, 0, 0.91312534, -0.041661754, 2.1359468, 10.250538, -323.21088)
 shape = SubResource("BoxShape3D_uryd3")
 
+[node name="song" type="AudioStreamPlayer" parent="." unique_id=580540393]
+stream = ExtResource("13_rfnve")
+autoplay = true
+parameters/looping = false
+
 [connection signal="body_entered" from="death zone" to="death zone" method="_on_body_entered"]
 [connection signal="body_entered" from="end zone" to="end zone" method="_on_body_entered"]
 
@@ -512,3 +518,4 @@ shape = SubResource("BoxShape3D_uryd3")
 [editable path="player/crosshair"]
 [editable path="player/fork attack area"]
 [editable path="player/boss health"]
+[editable path="player/joystick"]

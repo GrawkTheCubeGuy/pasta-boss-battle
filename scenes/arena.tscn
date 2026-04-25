@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0kpnrhhdhf8f"]
+[gd_scene format=3 uid="uid://d0kpnrhhdhf8f"]
 
 [ext_resource type="PackedScene" uid="uid://c48ipmey548cg" path="res://scenes/arena_model.tscn" id="1_e05a3"]
 [ext_resource type="PackedScene" uid="uid://blfu2pd8vu1ap" path="res://scenes/player.tscn" id="2_wl4x5"]
@@ -18,35 +18,35 @@ sky = SubResource("Sky_olpmc")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="arena" type="Node3D"]
+[node name="arena" type="Node3D" unique_id=336857534]
 
-[node name="arena model" parent="." instance=ExtResource("1_e05a3")]
+[node name="arena model" parent="." unique_id=763592729 instance=ExtResource("1_e05a3")]
 transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0.010605812, -2.7822514, 0.060410976)
 
-[node name="player" parent="." instance=ExtResource("2_wl4x5")]
+[node name="player" parent="." unique_id=1502963745 instance=ExtResource("2_wl4x5")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.7229017, 0)
 
-[node name="fire" parent="player/camera" index="0" node_paths=PackedStringArray("boss", "scene_root")]
+[node name="fire" parent="player/camera" parent_id_path=PackedInt32Array(1502963745, 1084508641) index="0" unique_id=1389927951 node_paths=PackedStringArray("boss", "scene_root")]
 boss = NodePath("../../../boss object")
 scene_root = NodePath("../../..")
 
-[node name="collis" parent="player/camera/explosion area" index="0"]
+[node name="collis" parent="player/camera/explosion area" parent_id_path=PackedInt32Array(1502963745, 1084508641, 548537957) index="0" unique_id=871350055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115688324, 0.8785534, -0.12895966)
 
-[node name="world" type="Node3D" parent="."]
+[node name="world" type="Node3D" parent="." unique_id=881377091]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world" unique_id=621399472]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="world"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="world" unique_id=292504924]
 environment = SubResource("Environment_xdvfk")
 
-[node name="boss object" parent="." node_paths=PackedStringArray("scene_root", "player") instance=ExtResource("4_xdvfk")]
+[node name="boss object" parent="." unique_id=1131682927 node_paths=PackedStringArray("scene_root", "player") instance=ExtResource("4_xdvfk")]
 scene_root = NodePath("..")
 player = NodePath("../player")
 
-[node name="song" type="AudioStreamPlayer" parent="."]
+[node name="song" type="AudioStreamPlayer" parent="." unique_id=747326838]
 stream = ExtResource("4_7ft05")
 autoplay = true
 
@@ -57,3 +57,4 @@ autoplay = true
 [editable path="player/object holder"]
 [editable path="player/crosshair"]
 [editable path="player/fork attack area"]
+[editable path="player/joystick"]

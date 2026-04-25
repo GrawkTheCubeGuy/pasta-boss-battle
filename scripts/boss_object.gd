@@ -26,7 +26,7 @@ func _ready() -> void:
 	stun_requirement = randi_range(3, 5)
 	if global.dark_souls_mode:
 		resting_speed = 1.5
-		global.max_boss_health = 1250
+		global.max_boss_health = 1500
 		global.boss_health = global.max_boss_health 
 		for i in timer_array:
 			i.wait_time /= 2

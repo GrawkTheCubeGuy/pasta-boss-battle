@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://tpuwyf6qg80p"]
+
+[ext_resource type="Script" uid="uid://8p0m15jxa27m" path="res://scripts/joystick.gd" id="1_qxmy8"]
+[ext_resource type="Texture2D" uid="uid://boml32610muna" path="res://images/joystick.png" id="2_m03u7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_demt0"]
+
+[node name="joystick" type="Control" unique_id=1001036022 node_paths=PackedStringArray("joystick", "up_max", "down_max", "left_max", "right_max")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qxmy8")
+joystick = NodePath("joystick")
+up_max = NodePath("up max")
+down_max = NodePath("down max")
+left_max = NodePath("left max")
+right_max = NodePath("right max")
+
+[node name="background" type="MeshInstance2D" parent="." unique_id=2039801172]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 0.3764706)
+position = Vector2(100, 100)
+scale = Vector2(200, 200)
+mesh = SubResource("SphereMesh_demt0")
+
+[node name="joystick" type="TextureRect" parent="." unique_id=11405705]
+texture_filter = 1
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 149.99998
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("2_m03u7")
+
+[node name="up max" type="Control" parent="." unique_id=1634461094]
+anchors_preset = 0
+offset_left = 50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = -50.0
+
+[node name="down max" type="Control" parent="." unique_id=2026552]
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 150.0
+offset_right = 50.0
+offset_bottom = 150.0
+
+[node name="left max" type="Control" parent="." unique_id=1193885984]
+anchors_preset = 0
+offset_left = -50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 50.0
+
+[node name="right max" type="Control" parent="." unique_id=932215539]
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 50.0
+
+[node name="touchsensor" type="Control" parent="." unique_id=1747978359]
+z_index = 10
+anchors_preset = 0
+offset_left = -216.0
+offset_top = -169.0
+offset_right = 778.0
+offset_bottom = 330.0
+
+[connection signal="mouse_entered" from="touchsensor" to="." method="_on_touchsensor_mouse_entered"]
+[connection signal="mouse_exited" from="touchsensor" to="." method="_on_touchsensor_mouse_exited"]

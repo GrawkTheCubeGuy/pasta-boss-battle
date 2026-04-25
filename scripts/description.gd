@@ -1,7 +1,7 @@
 extends RichTextLabel
 
 func _process(_delta: float) -> void:
-	global_position = Vector2((get_viewport().get_mouse_position().x + 960) / (get_viewport().size.x / 1152), get_viewport().get_mouse_position().y - 175 / (get_viewport().size.y / 648))
+	global_position = Vector2((get_viewport().get_mouse_position().x + 900), get_viewport().get_mouse_position().y - 140)
 	
 func _on_ball_button_mouse_entered() -> void:
 	visible = true

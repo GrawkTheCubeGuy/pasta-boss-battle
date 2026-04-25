@@ -35,16 +35,10 @@ func deal_damage_player(damage : float) -> void:
 		boss_health = max_boss_health
 		RenderingServer.global_shader_parameter_set("boss_healthbar", 1)
 		if endless:
-			var prev_high_score = FileAccess.open("res://endless_high_score.txt", FileAccess.READ).get_as_text()
-			if prev_high_score == "":
-				prev_high_score = -1
-			else:
-				prev_high_score = int(prev_high_score.replace("Wave ", ""))
-			var file : FileAccess = FileAccess.open("res://endless_high_score.txt", FileAccess.WRITE)
+			var prev_high_score = SaveManager.save_data.endless_high_score
 			if prev_high_score < endless_wave:
-				var pretty_endless_wave : String = str("Wave ", endless_wave)
-				print(pretty_endless_wave)
-				file.store_string(pretty_endless_wave)
+				SaveManager.save_data.endless_high_score = endless_wave
+				SaveManager.update_save_data()
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/menu.tscn")
 		else:
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/game_over.tscn")

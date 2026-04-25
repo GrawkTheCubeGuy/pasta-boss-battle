@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dotdjahbvy5pn"]
+[gd_scene format=3 uid="uid://dotdjahbvy5pn"]
 
 [ext_resource type="Script" uid="uid://dt3l6oqefwh52" path="res://scripts/fire.gd" id="1_u5kg4"]
 [ext_resource type="Texture2D" uid="uid://b4ocp1vq7nwri" path="res://images/explosion.png" id="2_kod1s"]
@@ -207,65 +207,65 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="camera" type="Camera3D"]
+[node name="camera" type="Camera3D" unique_id=717000474]
 
-[node name="fire" type="RayCast3D" parent="."]
+[node name="fire" type="RayCast3D" parent="." unique_id=1389927951]
 target_position = Vector3(0, 0, -600)
 collision_mask = 9
 debug_shape_custom_color = Color(1, 0, 0, 1)
 debug_shape_thickness = 5
 script = ExtResource("1_u5kg4")
 
-[node name="yellow ball timer" type="Timer" parent="fire"]
+[node name="yellow ball timer" type="Timer" parent="fire" unique_id=1032567305]
 wait_time = 0.2
 
-[node name="blue ball timer" type="Timer" parent="fire"]
+[node name="blue ball timer" type="Timer" parent="fire" unique_id=1435307851]
 wait_time = 2.0
 
-[node name="mesh" type="MeshInstance3D" parent="fire"]
+[node name="mesh" type="MeshInstance3D" parent="fire" unique_id=403711626]
 transform = Transform3D(0.25217563, 0, 0, 0, 0.11116004, 0, 0, 0, 969.1842, 0, 0, 0)
 visible = false
 mesh = SubResource("BoxMesh_ys67x")
 
-[node name="red ball timer" type="Timer" parent="fire"]
+[node name="red ball timer" type="Timer" parent="fire" unique_id=1361764866]
 wait_time = 2.0
 
-[node name="teleport" type="RayCast3D" parent="."]
+[node name="teleport" type="RayCast3D" parent="." unique_id=1850325431]
 target_position = Vector3(0, 0, -20)
 collision_mask = 5
 debug_shape_custom_color = Color(0, 0, 0.7372549, 1)
 debug_shape_thickness = 5
 
-[node name="teleport base collider" type="StaticBody3D" parent="."]
+[node name="teleport base collider" type="StaticBody3D" parent="." unique_id=2035544957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.713465)
 collision_layer = 4
 collision_mask = 0
 
-[node name="collis" type="CollisionShape3D" parent="teleport base collider"]
+[node name="collis" type="CollisionShape3D" parent="teleport base collider" unique_id=317008186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12061691)
 shape = SubResource("BoxShape3D_cvpoc")
 
-[node name="explosion area" type="Area3D" parent="."]
+[node name="explosion area" type="Area3D" parent="." unique_id=548537957]
 
-[node name="collis" type="CollisionShape3D" parent="explosion area"]
+[node name="collis" type="CollisionShape3D" parent="explosion area" unique_id=871350055]
 shape = SubResource("SphereShape3D_cvpoc")
 disabled = true
 
-[node name="explosion timer" type="Timer" parent="."]
+[node name="explosion timer" type="Timer" parent="." unique_id=205313281]
 wait_time = 0.1
 
-[node name="poison timer" type="Timer" parent="."]
+[node name="poison timer" type="Timer" parent="." unique_id=113241469]
 
-[node name="explosion" type="Sprite3D" parent="."]
+[node name="explosion" type="Sprite3D" parent="." unique_id=718992504]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
 modulate = Color(1, 1, 1, 0)
 billboard = 1
 texture = ExtResource("2_kod1s")
 script = ExtResource("3_tmlye")
 
-[node name="timer" type="Timer" parent="explosion"]
+[node name="timer" type="Timer" parent="explosion" unique_id=65756451]
 
-[node name="yellow ball indicator" type="AnimatedSprite2D" parent="."]
+[node name="yellow ball indicator" type="AnimatedSprite2D" parent="." unique_id=1073826521]
 visible = false
 texture_filter = 1
 position = Vector2(582, 327)
@@ -273,7 +273,7 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_gf3pk")
 animation = &"stage 1"
 
-[node name="blue ball indicator" type="AnimatedSprite2D" parent="."]
+[node name="blue ball indicator" type="AnimatedSprite2D" parent="." unique_id=1334303454]
 visible = false
 texture_filter = 1
 position = Vector2(582, 327)

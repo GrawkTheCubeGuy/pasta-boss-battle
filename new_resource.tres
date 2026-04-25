@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SaveData" format=3 uid="uid://bf2rrxfvtfkbu"]
+
+[ext_resource type="Script" uid="uid://b8v08ly4m3wjv" path="res://save_data.gd" id="1_g5ko2"]
+
+[resource]
+script = ExtResource("1_g5ko2")
+has_beat_ds_mode = true
+endless_high_score = 5
+pizzaman_inventory = PackedStringArray("red ball", "blue ball")
+metadata/_custom_type_script = "uid://b8v08ly4m3wjv"

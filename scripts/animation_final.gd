@@ -6,10 +6,10 @@ func _ready() -> void:
 	play("boot")
 
 func _on_animation_finished(_anim_name: StringName) -> void:
-	var load_file = FileAccess.open("res://beat.txt", FileAccess.READ)
-	var acutal_file = FileAccess.open("res://beat.txt", FileAccess.WRITE)
 	if global.dark_souls_mode:
-		acutal_file.store_string("true")
+		SaveManager.save_data.has_beat_ds_mode = true
+		SaveManager.update_save_data()
+	global.points = 10
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	
 func _process(_delta: float) -> void:

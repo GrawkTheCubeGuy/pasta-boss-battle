@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dgvv7gu8q6d1c"]
+[gd_scene format=3 uid="uid://dgvv7gu8q6d1c"]
 
 [ext_resource type="Script" uid="uid://d05ncdk8f8ttr" path="res://scripts/intro_cutscene_manager.gd" id="1_or1y8"]
 [ext_resource type="PackedScene" uid="uid://c48ipmey548cg" path="res://scenes/arena_model.tscn" id="2_qqgw7"]
@@ -424,114 +424,112 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1of8b"]
 material = SubResource("StandardMaterial3D_ur7pv")
 
-[node name="node" type="Node3D"]
+[node name="node" type="Node3D" unique_id=1554273552]
 script = ExtResource("1_or1y8")
 
-[node name="arena" parent="." instance=ExtResource("2_qqgw7")]
+[node name="arena" parent="." unique_id=840865901 instance=ExtResource("2_qqgw7")]
 transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
 
-[node name="environmetn" type="Node3D" parent="."]
+[node name="environmetn" type="Node3D" parent="." unique_id=512597905]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="environmetn"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="environmetn" unique_id=93222322]
 environment = SubResource("Environment_cmvlh")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environmetn"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environmetn" unique_id=2116085431]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="node" type="Node2D" parent="."]
+[node name="node" type="Node2D" parent="." unique_id=2074474384]
 
-[node name="sprite" type="Sprite2D" parent="node"]
+[node name="sprite" type="Sprite2D" parent="node" unique_id=151465769]
 position = Vector2(70, 197)
 texture = ExtResource("3_crtfr")
 
-[node name="discord sfx" type="AudioStreamPlayer" parent="node"]
+[node name="discord sfx" type="AudioStreamPlayer" parent="node" unique_id=1257876705]
 stream = ExtResource("4_cmvlh")
 
-[node name="camera" type="Camera2D" parent="node"]
+[node name="camera" type="Camera2D" parent="node" unique_id=2017733040]
 position = Vector2(3, -29)
 zoom = Vector2(10, 10)
 
-[node name="background" type="ColorRect" parent="node"]
+[node name="background" type="ColorRect" parent="node" unique_id=113151011]
 z_index = -1
-offset_left = -216.0
+offset_left = -1390.0
 offset_top = -81.0
-offset_right = 840.0
+offset_right = -12.178467
 offset_bottom = 952.0
 scale = Vector2(3.6479855, 6.237651)
 color = Color(0.101960786, 0.101960786, 0.11764706, 1)
 
-[node name="discord sfx2" type="AudioStreamPlayer" parent="node"]
+[node name="discord sfx2" type="AudioStreamPlayer" parent="node" unique_id=1434253824]
 stream = ExtResource("4_cmvlh")
 
-[node name="sprite2" type="Sprite2D" parent="node"]
+[node name="sprite2" type="Sprite2D" parent="node" unique_id=1081857051]
 z_index = -1
 position = Vector2(720, 372)
 texture = ExtResource("5_sxueb")
 
-[node name="sprite3" type="Sprite2D" parent="node"]
+[node name="sprite3" type="Sprite2D" parent="node" unique_id=104018005]
 z_index = -1
 position = Vector2(513, 1804.0001)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_gikq8")
 
-[node name="fade" type="ColorRect" parent="node"]
+[node name="fade" type="ColorRect" parent="node" unique_id=2017909917]
 z_index = 90
-offset_left = -216.0
+offset_left = -1004.00006
 offset_top = 1394.0
-offset_right = 198.47534
+offset_right = -373.51508
 offset_bottom = 1544.3771
 scale = Vector2(3.6479855, 6.237651)
 
-[node name="sprite4" type="Sprite2D" parent="node"]
+[node name="sprite4" type="Sprite2D" parent="node" unique_id=1157863769]
 position = Vector2(567.49994, 1914.5001)
 scale = Vector2(0.9164053, 0.9221142)
 texture = ExtResource("7_kke2t")
 script = ExtResource("8_6ntfu")
 
-[node name="camera" type="Camera3D" parent="."]
-transform = Transform3D(0.031777103, 0, -0.9994946, 0, 0.99999994, 0, 0.9994946, 0, 0.031777103, 0, 3.2296138, 0)
+[node name="camera" type="Camera3D" parent="." unique_id=1840346004]
+transform = Transform3D(0.0317771, 0, -0.9994945, 0, 0.99999994, 0, 0.9994945, 0, 0.0317771, 0, 3.2296138, 0)
 
-[node name="animation" type="AnimationPlayer" parent="."]
+[node name="animation" type="AnimationPlayer" parent="." unique_id=463574105]
 root_node = NodePath("../node")
-libraries = {
-&"": SubResource("AnimationLibrary_1of8b")
-}
+libraries/ = SubResource("AnimationLibrary_1of8b")
 
-[node name="song" type="AudioStreamPlayer" parent="."]
+[node name="song" type="AudioStreamPlayer" parent="." unique_id=1734538643]
 stream = ExtResource("5_qqgw7")
 volume_db = 4.45
 
-[node name="pasta" parent="." instance=ExtResource("8_sxueb")]
+[node name="pasta" parent="." unique_id=1873164395 instance=ExtResource("8_sxueb")]
 transform = Transform3D(-0.00033156475, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -0.00033156475, 0, 0, 0)
 billboard = 0
 texture = SubResource("ViewportTexture_6ntfu")
 
-[node name="mesh (for scale)" type="MeshInstance3D" parent="."]
+[node name="mesh (for scale)" type="MeshInstance3D" parent="." unique_id=94617528]
 transform = Transform3D(3.0000007, 0, 0, 0, 3.0000007, 0, 0, 0, 3.0000005, -19.491879, 2.8600788, 2.28476)
 mesh = SubResource("CapsuleMesh_1of8b")
 
-[node name="fork" type="Sprite3D" parent="mesh (for scale)"]
+[node name="fork" type="Sprite3D" parent="mesh (for scale)" unique_id=1250102482]
 transform = Transform3D(-0.30211884, 0.3984022, 0, -0.3984022, -0.30211884, 0, 0, 0, 0.49999997, 0.98185146, 0.007843971, 0.5224746)
 texture = ExtResource("9_gikq8")
 
-[node name="you" type="Sprite3D" parent="mesh (for scale)"]
+[node name="you" type="Sprite3D" parent="mesh (for scale)" unique_id=114246858]
 transform = Transform3D(-0.20668201, 0.23543094, 1.2960069, 0.03707708, 1.3123841, -0.23249303, -1.3166957, 1.7970871e-09, -0.2099813, -0.057876587, 1.0571529, -1.7274921)
 texture = ExtResource("12_6ntfu")
 
-[node name="pasta shots" type="Node3D" parent="."]
+[node name="pasta shots" type="Node3D" parent="." unique_id=1866255848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.753, 19.57, 0)
 
-[node name="pasta shot" parent="pasta shots" instance=ExtResource("10_kke2t")]
+[node name="pasta shot" parent="pasta shots" unique_id=1214782252 instance=ExtResource("10_kke2t")]
 transform = Transform3D(0.23255846, -2.9909725, 0, 2.9909725, 0.23255846, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="pasta shot2" parent="pasta shots" instance=ExtResource("10_kke2t")]
+[node name="pasta shot2" parent="pasta shots" unique_id=1256339072 instance=ExtResource("10_kke2t")]
 transform = Transform3D(0.23255846, -2.9909725, 0, 2.9909725, 0.23255846, 0, 0, 0, 3, 0, 9.195, -21.057)
 
-[node name="pasta shot3" parent="pasta shots" instance=ExtResource("10_kke2t")]
+[node name="pasta shot3" parent="pasta shots" unique_id=378775661 instance=ExtResource("10_kke2t")]
 transform = Transform3D(0.23255846, -2.9909725, 0, 2.9909725, 0.23255846, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="pasta shot4" parent="pasta shots" instance=ExtResource("10_kke2t")]
+[node name="pasta shot4" parent="pasta shots" unique_id=737566801 instance=ExtResource("10_kke2t")]
 transform = Transform3D(0.23255846, -2.9909725, 0, 2.9909725, 0.23255846, 0, 0, 0, 3, 0, 0, 0)
 
 [connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]

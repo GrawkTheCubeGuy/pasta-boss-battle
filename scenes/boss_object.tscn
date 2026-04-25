@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cb1k1use0mvrd"]
+[gd_scene format=3 uid="uid://cb1k1use0mvrd"]
 
 [ext_resource type="Script" uid="uid://dvo7vyflccuy6" path="res://scripts/boss_object.gd" id="1_8vi17"]
 [ext_resource type="PackedScene" uid="uid://bca6w8102qd28" path="res://scenes/pasta_texture.tscn" id="2_6slvs"]
@@ -72,7 +72,7 @@ height = 0.375
 [sub_resource type="ViewportTexture" id="ViewportTexture_6slvs"]
 viewport_path = NodePath("pasta texture")
 
-[node name="boss object" type="CharacterBody3D" node_paths=PackedStringArray("attack_timer", "cooldown_timer", "attack_one_timer", "animator", "poison_particle")]
+[node name="boss object" type="CharacterBody3D" unique_id=280033236 node_paths=PackedStringArray("attack_timer", "cooldown_timer", "attack_one_timer", "animator", "poison_particle")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 19.640486, 0)
 script = ExtResource("1_8vi17")
 attack_timer = NodePath("attack timer")
@@ -81,23 +81,21 @@ attack_one_timer = NodePath("attack one timer")
 animator = NodePath("animator")
 poison_particle = NodePath("particle")
 
-[node name="attack timer" type="Timer" parent="."]
+[node name="attack timer" type="Timer" parent="." unique_id=976901088]
 
-[node name="collis" type="CollisionShape3D" parent="."]
+[node name="collis" type="CollisionShape3D" parent="." unique_id=1077908937]
 transform = Transform3D(1, 0, 0, 0, 0.931493, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_6slvs")
 
-[node name="animator" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_t847i")
-}
+[node name="animator" type="AnimationPlayer" parent="." unique_id=430960288]
+libraries/ = SubResource("AnimationLibrary_t847i")
 
-[node name="cooldown timer" type="Timer" parent="."]
+[node name="cooldown timer" type="Timer" parent="." unique_id=1492267760]
 
-[node name="attack one timer" type="Timer" parent="."]
+[node name="attack one timer" type="Timer" parent="." unique_id=113815190]
 wait_time = 1.0499999999999998
 
-[node name="particle" type="CPUParticles3D" parent="."]
+[node name="particle" type="CPUParticles3D" parent="." unique_id=1205103179]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.13717213, 0)
 emitting = false
 amount = 25
@@ -122,5 +120,5 @@ scale_amount_max = 10.0
 anim_speed_min = 28.44
 anim_speed_max = 28.44
 
-[node name="pasta" parent="." instance=ExtResource("2_6slvs")]
+[node name="pasta" parent="." unique_id=1102191793 instance=ExtResource("2_6slvs")]
 texture = SubResource("ViewportTexture_6slvs")

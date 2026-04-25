@@ -17,7 +17,6 @@ var is_running : bool = false
 
 func _ready() -> void:
 	global.health = 1
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
 	

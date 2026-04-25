@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2k3tym5y0p00"]
+[gd_scene format=3 uid="uid://c2k3tym5y0p00"]
 
 [ext_resource type="Script" uid="uid://e0ix73uvyl8q" path="res://scripts/boss_chaser.gd" id="1_m1o7u"]
 [ext_resource type="PackedScene" uid="uid://bca6w8102qd28" path="res://scenes/pasta_texture.tscn" id="1_x0jpx"]
@@ -7,20 +7,24 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1o7u"]
 size = Vector3(70.523056, 36.83557, 76.44531)
 
-[node name="boss chaser" type="Area3D"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_urvpd"]
+viewport_path = NodePath("pasta texture")
+
+[node name="boss chaser" type="Area3D" unique_id=1930050183]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 script = ExtResource("1_m1o7u")
 
-[node name="collis" type="CollisionShape3D" parent="."]
+[node name="collis" type="CollisionShape3D" parent="." unique_id=1716654763]
 transform = Transform3D(1, 0, 0, 0, 2.0724459, 0, 0, 0, 1, -35.434273, 0.013977051, 1.1298828)
 shape = SubResource("BoxShape3D_m1o7u")
 
-[node name="pasta" parent="." instance=ExtResource("1_x0jpx")]
+[node name="pasta" parent="." unique_id=1913676579 instance=ExtResource("1_x0jpx")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.7646766, 0, 0)
 billboard = 0
 shaded = true
+texture = SubResource("ViewportTexture_urvpd")
 
-[node name="pasta tentacle" parent="." instance=ExtResource("2_jybou")]
+[node name="pasta tentacle" parent="." unique_id=2092484207 instance=ExtResource("2_jybou")]
 transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 0, 0, 21.57575)
 
 [node name="Armature" parent="pasta tentacle" index="0"]
@@ -35,7 +39,7 @@ bones/5/rotation = Quaternion(-0.02413095, 0.00026312107, -5.298895e-09, 0.99970
 bones/6/rotation = Quaternion(-0.022506326, 0.000245406, -5.06535e-09, 0.9997467)
 bones/7/rotation = Quaternion(-0.05784455, 0.00063072995, -1.3668949e-08, 0.9983254)
 
-[node name="pasta tentacle2" parent="." instance=ExtResource("2_jybou")]
+[node name="pasta tentacle2" parent="." unique_id=548601638 instance=ExtResource("2_jybou")]
 transform = Transform3D(-1.3113416e-07, 0, -3, 2.9997818, 0.036179844, -1.3112462e-07, 0.036179844, -2.9997818, -1.5814712e-09, 0, 11.484478, -13.036242)
 
 [node name="Armature" parent="pasta tentacle2" index="0"]
@@ -50,7 +54,7 @@ bones/5/rotation = Quaternion(-0.02413095, 0.00026312107, -5.298895e-09, 0.99970
 bones/6/rotation = Quaternion(-0.022506326, 0.000245406, -5.06535e-09, 0.9997467)
 bones/7/rotation = Quaternion(-0.05784455, 0.00063072995, -1.3668949e-08, 0.9983254)
 
-[node name="pasta tentacle3" parent="." instance=ExtResource("2_jybou")]
+[node name="pasta tentacle3" parent="." unique_id=278138154 instance=ExtResource("2_jybou")]
 transform = Transform3D(-1.3113416e-07, 0, -3, -2.9992745, 0.065967955, 1.3110245e-07, 0.065967955, 2.9992745, -2.8835507e-09, 0, -17.6315, 8.991327)
 
 [node name="Armature" parent="pasta tentacle3" index="0"]
@@ -65,7 +69,7 @@ bones/5/rotation = Quaternion(-0.02413095, 0.00026312107, -5.298895e-09, 0.99970
 bones/6/rotation = Quaternion(-0.022506326, 0.000245406, -5.06535e-09, 0.9997467)
 bones/7/rotation = Quaternion(-0.05784455, 0.00063072995, -1.3668949e-08, 0.9983254)
 
-[node name="pasta tentacle4" parent="." instance=ExtResource("2_jybou")]
+[node name="pasta tentacle4" parent="." unique_id=1526136776 instance=ExtResource("2_jybou")]
 transform = Transform3D(-1.3113417e-07, 3.7984623e-17, -3, -0.08010118, -2.9989305, 3.5013232e-09, -2.9989305, 0.08010118, 1.3108743e-07, 0, -4.0875225, -18.22744)
 
 [node name="Armature" parent="pasta tentacle4" index="0"]

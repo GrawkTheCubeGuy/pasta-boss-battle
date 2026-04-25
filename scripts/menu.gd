@@ -1,5 +1,6 @@
 extends Control
 
+
 const cheat_code_array_console : Array = ["Joypad Button 11 (D-pad Up)", "Joypad Button 11 (D-pad Up)", "Joypad Button 12 (D-pad Down)", "Joypad Button 12 (D-pad Down)", "Joypad Button 13 (D-pad Left)", "Joypad Button 14 (D-pad Right)", "Joypad Button 13 (D-pad Left)", "Joypad Button 14 (D-pad Right)", "Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)", "Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)"]
 const cheat_code_array : Array = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right", "B", "A"]
 var key_array : Array 
@@ -9,6 +10,8 @@ var is_menu_h2p : bool = false
 
 
 func _ready() -> void:
+#	var file = FileAccess.open("user://save.txt", FileAccess.READ)
+#	file.close()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	animation.play("bootup")
 
@@ -23,8 +26,8 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_play_pressed() -> void:
-	var file = FileAccess.open("res://save.txt", FileAccess.WRITE)
-	file.store_string(str(global.ball_inventory))
+#	var file = FileAccess.open("user://save.txt", FileAccess.WRITE)
+#	file.store_string(str(global.ball_inventory))
 	get_tree().change_scene_to_file("res://scenes/opening cutscene.tscn")
 
 func _on_endless_pressed() -> void:
@@ -63,3 +66,9 @@ func _on_pizazaman_inventroy_pressed() -> void:
 
 func _on_back_arrow_pressed() -> void:
 	animation.play("pizzaman_inventory_back")
+
+func _on_code_text_changed() -> void:
+	var code : TextEdit = $"title screen/code"
+	if code.text.to_upper() == "UP UP DOWN DOWN LEFT RIGHT LEFT RIGHT B A":
+		code.queue_free()
+		dark_souls_mode()

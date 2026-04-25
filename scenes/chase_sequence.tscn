@@ -507,7 +507,7 @@ shape = SubResource("BoxShape3D_uryd3")
 [node name="song" type="AudioStreamPlayer" parent="." unique_id=580540393]
 stream = ExtResource("13_rfnve")
 autoplay = true
-parameters/looping = false
+parameters/looping = true
 
 [connection signal="body_entered" from="death zone" to="death zone" method="_on_body_entered"]
 [connection signal="body_entered" from="end zone" to="end zone" method="_on_body_entered"]

@@ -3,7 +3,7 @@ class_name Player
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const SENSITIVITY : float = 0.2
+const SENSITIVITY : float = 0.3
 @export var is_shielded : bool = false
 var is_sliding : bool = false
 var is_running : bool = false
@@ -11,6 +11,7 @@ var is_running : bool = false
 @export var max_stamina : float = 20
 @export var min_stamina : float = 0
 @export var cur_pizzaman_ball : String 
+@export var right_max_2 : Control 
 
 @onready var camera : Camera3D = $camera
 @onready var raycast : RayCast3D = $camera/teleport
@@ -74,10 +75,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		rotation_degrees.y -= event.relative.x * SENSITIVITY 
-		camera.rotation_degrees.x -= event.relative.y * SENSITIVITY
-		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90 , 90)
+	if event is InputEventScreenDrag:
+		if not event.position.x < right_max_2.global_position.x:
+			rotation_degrees.y -= event.relative.x * SENSITIVITY 
+			camera.rotation_degrees.x -= event.relative.y * SENSITIVITY
+			camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90 , 90)
 
 func _on_object_holder_cube_shield() -> void:
 	is_shielded = not is_shielded

@@ -5,7 +5,7 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_demt0"]
 
-[node name="joystick" type="Control" unique_id=1001036022 node_paths=PackedStringArray("joystick", "up_max", "down_max", "left_max", "right_max")]
+[node name="joystick" type="Control" unique_id=1001036022 node_paths=PackedStringArray("joystick", "up_max", "down_max", "left_max", "right_max", "right_max_but_better")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_qxmy8")
@@ -14,6 +14,7 @@ up_max = NodePath("up max")
 down_max = NodePath("down max")
 left_max = NodePath("left max")
 right_max = NodePath("right max")
+right_max_but_better = NodePath("right max 2 electrict boogalo")
 
 [node name="background" type="MeshInstance2D" parent="." unique_id=2039801172]
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 0.3764706)
@@ -59,13 +60,9 @@ offset_top = 50.0
 offset_right = 150.0
 offset_bottom = 50.0
 
-[node name="touchsensor" type="Control" parent="." unique_id=1747978359]
-z_index = 10
+[node name="right max 2 electrict boogalo" type="Control" parent="." unique_id=980962469]
 anchors_preset = 0
-offset_left = -216.0
-offset_top = -169.0
-offset_right = 778.0
-offset_bottom = 330.0
-
-[connection signal="mouse_entered" from="touchsensor" to="." method="_on_touchsensor_mouse_entered"]
-[connection signal="mouse_exited" from="touchsensor" to="." method="_on_touchsensor_mouse_exited"]
+offset_left = 528.0
+offset_top = 36.0
+offset_right = 528.0
+offset_bottom = 36.0

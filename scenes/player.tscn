@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://burc7bkmr3466" path="res://scenes/crosshair.tscn" id="4_hqtel"]
 [ext_resource type="PackedScene" uid="uid://cb5xl423gx7f5" path="res://scenes/fork_attack_area.tscn" id="5_sweqy"]
 [ext_resource type="PackedScene" uid="uid://f705axjte4f" path="res://scenes/itembar.tscn" id="6_fjrip"]
+[ext_resource type="Script" uid="uid://dearfls8kw670" path="res://scripts/itembar.gd" id="7_a8ls1"]
 [ext_resource type="PackedScene" uid="uid://bxgq1a2hhkpua" path="res://scenes/healthbar.tscn" id="7_fjrip"]
 [ext_resource type="PackedScene" uid="uid://cmu30qgyc0fbu" path="res://scenes/stamina.tscn" id="8_smehm"]
 [ext_resource type="PackedScene" uid="uid://bs7pp6pip7wd3" path="res://scenes/boss health.tscn" id="9_ur7pv"]
@@ -25,8 +26,9 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_smehm"]
 material = SubResource("StandardMaterial3D_ur7pv")
 
-[node name="player" type="CharacterBody3D" unique_id=1770779559]
+[node name="player" type="CharacterBody3D" unique_id=1770779559 node_paths=PackedStringArray("right_max_2")]
 script = ExtResource("1_4flbx")
+right_max_2 = NodePath("joystick/right max 2 electrict boogalo")
 
 [node name="collis" type="CollisionShape3D" parent="." unique_id=1466952475]
 shape = SubResource("CapsuleShape3D_8uh7m")
@@ -34,11 +36,11 @@ shape = SubResource("CapsuleShape3D_8uh7m")
 [node name="camera" parent="." unique_id=1084508641 instance=ExtResource("2_i3pqv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.626068, 0)
 
-[node name="fire" parent="camera" index="0" unique_id=1389927951 node_paths=PackedStringArray("next_up", "player")]
+[node name="fire" parent="camera" index="0" node_paths=PackedStringArray("next_up", "player")]
 next_up = NodePath("../../object holder/next up")
 player = NodePath("../..")
 
-[node name="teleport base collider" parent="camera" index="2" unique_id=2035544957]
+[node name="teleport base collider" parent="camera" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.688542)
 
 [node name="object holder" parent="." unique_id=1216356466 instance=ExtResource("2_onrkg")]
@@ -50,11 +52,12 @@ offset_bottom = 544.0
 scale = Vector2(1.0846571, 1.0603055)
 
 [node name="next up" parent="object holder" index="2" node_paths=PackedStringArray("player")]
+z_index = 11
 player = NodePath("../..")
 
 [node name="crosshair" parent="." unique_id=1433864031 instance=ExtResource("4_hqtel")]
 
-[node name="crosshair" parent="crosshair" index="0" unique_id=630800356 node_paths=PackedStringArray("raycaster")]
+[node name="crosshair" parent="crosshair" index="0" node_paths=PackedStringArray("raycaster")]
 raycaster = NodePath("../../camera/fire")
 
 [node name="fork attack area" parent="." unique_id=277116482 instance=ExtResource("5_sweqy")]
@@ -67,6 +70,7 @@ offset_top = 574.0
 offset_right = 629.0
 offset_bottom = 614.0
 scale = Vector2(1.65726, 1.8321071)
+script = ExtResource("7_a8ls1")
 
 [node name="healthbar" parent="." unique_id=609256455 instance=ExtResource("7_fjrip")]
 z_index = 2
@@ -139,11 +143,11 @@ offset_right = 76.0
 offset_bottom = 402.0
 scale = Vector2(1.2, 1.2)
 
-[node name="touchsensor" parent="joystick" index="6" unique_id=1747978359]
-offset_left = -506.66663
-offset_top = -484.16666
-offset_right = 476.66663
-offset_bottom = 224.16666
+[node name="right max 2 electrict boogalo" parent="joystick" index="6" unique_id=980962469]
+offset_left = 604.1666
+offset_top = -140.0
+offset_right = 604.1666
+offset_bottom = -140.0
 
 [connection signal="cube_shield" from="object holder" to="." method="_on_object_holder_cube_shield"]
 [connection signal="fork_attack" from="object holder" to="fork attack area" method="_on_object_holder_fork_attack"]

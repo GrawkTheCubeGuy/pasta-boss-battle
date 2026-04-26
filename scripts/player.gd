@@ -74,13 +74,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventScreenDrag:
-		if not event.position.x < right_max_2.global_position.x:
-			rotation_degrees.y -= event.relative.x * SENSITIVITY 
-			camera.rotation_degrees.x -= event.relative.y * SENSITIVITY
-			camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90 , 90)
-
 func _on_object_holder_cube_shield() -> void:
 	is_shielded = not is_shielded
 

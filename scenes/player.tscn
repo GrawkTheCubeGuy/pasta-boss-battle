@@ -151,10 +151,10 @@ offset_bottom = -90.833336
 
 [node name="joystick camera" parent="." unique_id=1434337480 instance=ExtResource("15_4r5pv")]
 z_index = 12
-offset_left = 958.00006
-offset_top = 401.0
-offset_right = 958.00006
-offset_bottom = 401.0
+offset_left = 930.0
+offset_top = 388.0
+offset_right = 930.0
+offset_bottom = 388.0
 scale = Vector2(1.2, 1.2)
 up_command = "camera_up"
 down_command = "camera_down"

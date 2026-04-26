@@ -16,15 +16,15 @@ var is_held : bool = false
 var finger_location : Vector2 = Vector2.ZERO
 
 
-func _process(_delta: float) -> void:
-	if not Input.is_action_pressed("hold"):
+func _input(event: InputEvent) -> void:
+	if not event is InputEventScreenDrag:
 		reset_velocity()
 		return
-	finger_location = get_viewport().get_mouse_position()
-	if finger_location.x > right_max_but_better.position.x:
+	finger_location = event.position
+	if finger_location.x > right_max_but_better.global_position.x:
 		reset_velocity()
 		return
-	if finger_location.x < left_max_but_better.position.x:
+	if finger_location.x < left_max_but_better.global_position.x:
 		reset_velocity()
 		return
 	joystick.global_position = Vector2(finger_location.x -50, finger_location.y -50)
@@ -51,9 +51,9 @@ func internalize_joystick() -> void:
 		joystick.global_position.y = up_max.global_position.y
 
 func reset_velocity() -> void:
-	Input.action_release("backward")
-	Input.action_release("forward")
-	Input.action_release("left")
-	Input.action_release("right")
+	Input.action_release(down_command)
+	Input.action_release(up_command)
+	Input.action_release(left_command)
+	Input.action_release(right_command)
 	joystick.position = Vector2(50, 50)
 	

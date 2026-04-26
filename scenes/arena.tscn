@@ -26,11 +26,11 @@ transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0.010605812, -2.7822514, 0
 [node name="player" parent="." unique_id=1502963745 instance=ExtResource("2_wl4x5")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1.7229017, 0)
 
-[node name="fire" parent="player/camera" parent_id_path=PackedInt32Array(1502963745, 1084508641) index="0" unique_id=1389927951 node_paths=PackedStringArray("boss", "scene_root")]
+[node name="fire" parent="player/camera" parent_id_path=PackedInt32Array(1502963745, 1084508641) index="0" node_paths=PackedStringArray("boss", "scene_root")]
 boss = NodePath("../../../boss object")
 scene_root = NodePath("../../..")
 
-[node name="collis" parent="player/camera/explosion area" parent_id_path=PackedInt32Array(1502963745, 1084508641, 548537957) index="0" unique_id=871350055]
+[node name="collis" parent="player/camera/explosion area" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115688324, 0.8785534, -0.12895966)
 
 [node name="world" type="Node3D" parent="." unique_id=881377091]
@@ -58,3 +58,4 @@ autoplay = true
 [editable path="player/crosshair"]
 [editable path="player/fork attack area"]
 [editable path="player/joystick"]
+[editable path="player/joystick camera"]

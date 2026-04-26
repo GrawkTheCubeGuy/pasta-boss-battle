@@ -5,7 +5,7 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_demt0"]
 
-[node name="joystick" type="Control" unique_id=1001036022 node_paths=PackedStringArray("joystick", "up_max", "down_max", "left_max", "right_max", "right_max_but_better")]
+[node name="joystick" type="Control" unique_id=1001036022 node_paths=PackedStringArray("joystick", "up_max", "down_max", "left_max", "right_max", "right_max_but_better", "left_max_but_better")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_qxmy8")
@@ -14,7 +14,12 @@ up_max = NodePath("up max")
 down_max = NodePath("down max")
 left_max = NodePath("left max")
 right_max = NodePath("right max")
+up_command = "forward"
+down_command = "backward"
+left_command = "left"
+right_command = "right"
 right_max_but_better = NodePath("right max 2 electrict boogalo")
+left_max_but_better = NodePath("left max 2 electrict boogalo")
 
 [node name="background" type="MeshInstance2D" parent="." unique_id=2039801172]
 modulate = Color(0.48178947, 0.48178947, 0.48178947, 0.3764706)
@@ -66,3 +71,10 @@ offset_left = 528.0
 offset_top = 36.0
 offset_right = 528.0
 offset_bottom = 36.0
+
+[node name="left max 2 electrict boogalo" type="Control" parent="." unique_id=1818611808]
+anchors_preset = 0
+offset_left = -305.0
+offset_top = 15.0
+offset_right = -305.0
+offset_bottom = 15.0

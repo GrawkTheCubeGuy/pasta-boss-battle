@@ -6,7 +6,12 @@ class_name Joystick
 @export var down_max : Control
 @export var left_max : Control
 @export var right_max : Control
+@export var up_command : String
+@export var down_command : String
+@export var left_command : String
+@export var right_command : String
 @export var right_max_but_better : Control
+@export var left_max_but_better : Control
 var is_held : bool = false
 var finger_location : Vector2 = Vector2.ZERO
 
@@ -19,18 +24,21 @@ func _process(_delta: float) -> void:
 	if finger_location.x > right_max_but_better.position.x:
 		reset_velocity()
 		return
+	if finger_location.x < left_max_but_better.position.x:
+		reset_velocity()
+		return
 	joystick.global_position = Vector2(finger_location.x -50, finger_location.y -50)
 	internalize_joystick()
 	var y_ratio = (joystick.position.y / 100) - 0.5
 	var x_ratio = (joystick.position.x / 100) - 0.5
 	if y_ratio > 0:
-		Input.action_press("backward", y_ratio)
+		Input.action_press(down_command, y_ratio)
 	else:
-		Input.action_press("forward", -y_ratio)
+		Input.action_press(up_command, -y_ratio)
 	if x_ratio > 0:
-		Input.action_press("right", x_ratio)
+		Input.action_press(right_command, x_ratio)
 	else:
-		Input.action_press("left", -x_ratio)
+		Input.action_press(left_command, -x_ratio)
 
 func internalize_joystick() -> void:
 	if joystick.global_position.x > right_max.global_position.x:

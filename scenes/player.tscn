@@ -104,7 +104,7 @@ script = ExtResource("10_y4r1p")
 modulate = Color(1, 1, 1, 0.58431375)
 z_index = 12
 texture_filter = 1
-position = Vector2(1059, 306)
+position = Vector2(1089, 72)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("11_oprun")
 action = "jump"
@@ -113,7 +113,7 @@ action = "jump"
 modulate = Color(1, 1, 1, 0.58431375)
 z_index = 12
 texture_filter = 1
-position = Vector2(864, 490)
+position = Vector2(894, 256)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("12_a8ls1")
 action = "slide"
@@ -122,7 +122,7 @@ action = "slide"
 modulate = Color(1, 1, 1, 0.58431375)
 z_index = 12
 texture_filter = 1
-position = Vector2(1060, 490)
+position = Vector2(1090, 256)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("13_qfm1y")
 action = "run"
@@ -131,7 +131,7 @@ action = "run"
 modulate = Color(1, 1, 1, 0.58431375)
 z_index = 12
 texture_filter = 1
-position = Vector2(863, 306)
+position = Vector2(893, 72)
 scale = Vector2(2, 2)
 texture_normal = ExtResource("14_fulsm")
 action = "use"
@@ -144,10 +144,28 @@ offset_bottom = 402.0
 scale = Vector2(1.2, 1.2)
 
 [node name="right max 2 electrict boogalo" parent="joystick" index="6" unique_id=980962469]
-offset_left = 604.1666
-offset_top = -140.0
-offset_right = 604.1666
-offset_bottom = -140.0
+offset_left = 396.66666
+offset_top = -90.833336
+offset_right = 396.66666
+offset_bottom = -90.833336
+
+[node name="joystick camera" parent="." unique_id=1434337480 instance=ExtResource("15_4r5pv")]
+z_index = 12
+offset_left = 958.00006
+offset_top = 401.0
+offset_right = 958.00006
+offset_bottom = 401.0
+scale = Vector2(1.2, 1.2)
+up_command = "camera_up"
+down_command = "camera_down"
+left_command = "camera_left"
+right_command = "camera_right"
+
+[node name="right max 2 electrict boogalo" parent="joystick camera" index="6" unique_id=980962469]
+offset_left = 396.66666
+offset_top = -90.833336
+offset_right = 396.66666
+offset_bottom = -90.833336
 
 [connection signal="cube_shield" from="object holder" to="." method="_on_object_holder_cube_shield"]
 [connection signal="fork_attack" from="object holder" to="fork attack area" method="_on_object_holder_fork_attack"]
@@ -160,3 +178,4 @@ offset_bottom = -140.0
 [editable path="crosshair"]
 [editable path="fork attack area"]
 [editable path="joystick"]
+[editable path="joystick camera"]

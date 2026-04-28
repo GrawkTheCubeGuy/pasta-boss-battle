@@ -52,7 +52,7 @@ offset_bottom = 544.0
 scale = Vector2(1.0846571, 1.0603055)
 
 [node name="next up" parent="object holder" index="2" node_paths=PackedStringArray("player")]
-z_index = 11
+z_index = 13
 player = NodePath("../..")
 
 [node name="crosshair" parent="." unique_id=1433864031 instance=ExtResource("4_hqtel")]

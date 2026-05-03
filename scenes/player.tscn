@@ -49,7 +49,9 @@ player = NodePath("../..")
 
 [node name="crosshair" parent="." unique_id=1433864031 instance=ExtResource("4_hqtel")]
 
-[node name="crosshair" parent="crosshair" index="0" node_paths=PackedStringArray("raycaster")]
+[node name="crosshair" parent="crosshair" index="0" unique_id=1756121818 node_paths=PackedStringArray("raycaster")]
+offset_right = 0.0
+offset_bottom = 0.0
 raycaster = NodePath("../../camera/fire")
 
 [node name="fork attack area" parent="." unique_id=277116482 instance=ExtResource("5_sweqy")]
